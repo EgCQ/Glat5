@@ -1,0 +1,207 @@
+body {
+    background-color: #000b16;
+    margin: 0;
+    padding: 0;
+}
+section{
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 720px;
+    padding: 0.5rem;
+    position: relative;
+    height: fit-content;
+    text-align: start;
+    background-image: linear-gradient(#1E73B0, #457ea7, #2f1297, #150063);
+}
+.backg{
+    position: fixed !important;
+    width: 100% !important;
+    height: 100vh;
+    display: flex !important;
+    flex-wrap: wrap;
+    flex: 1;
+    overflow-y:scroll;
+    justify-content: center;
+}
+input[type= text]{
+    width: 20rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    background-image: linear-gradient(to right, #004272,#1E73B0);
+
+}
+
+input[type= text]:valid{
+color: black;
+}
+textarea:valid{
+    color: black;
+
+}
+textarea{
+    width: 20rem !important;
+    height: 5rem !important;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+
+}
+textarea::placeholder{
+    width: fit-content;
+    height: 2.5rem;
+    border-radius: 10px;
+    border: none;
+    color: black;
+}
+
+input[type= text]::placeholder{
+    width: 30rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    border: none;
+    color: black;
+}
+
+
+div textarea{
+    width: fit-content;
+    background-image: linear-gradient(to right, #004272,#1E73B0);
+}
+
+.div-skills{
+    background-image: linear-gradient(to right, #004272,#1E73B0);
+    width: 5rem; 
+    margin-right: 1rem; 
+    margin-left: 1rem; 
+    padding-top: 0.2rem; 
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    height: 2rem; 
+    border-radius: 10px; 
+    border: none; 
+    color: white;
+    font-family: 'Ek Mukta';
+    font-size: 16px !important;
+    margin-bottom: 0.5rem;
+}
+.div-icon-title{
+    color: white; 
+    font-family: 'Quicksand' !important;
+    font-weight:bold;
+    margin-top: 0.7rem !important;
+    margin-bottom: 0.5rem !important;
+    margin-left: 3.5rem !important;
+    font-size: 20px;
+}
+div p{
+    color: white; 
+    font-family: 'Ek Mukta';
+    font-size: 16px !important;
+}
+
+.div-p{
+    color: white; 
+    font-family: 'Ek Mukta';
+    margin-left:5rem;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+
+    font-size: 16px !important;
+}
+
+
+div button[type=submit]{
+    width: 7rem; 
+    height: 2rem; 
+    border-radius: 10px;
+    font-size: large;
+    border: 0 !important;
+    margin-top: 0.2rem !important;
+    padding-left: 0.5rem;
+    margin-left: 2rem;
+    margin-bottom: 2.3rem;
+    background-image: linear-gradient(to right, #004272, #015088, #1E73B0);
+}
+div button[type=submit]:hover{
+    color: white;
+    cursor: pointer;
+    width: 7rem; 
+    height: 2rem; 
+    font-size: large;
+    border-radius: 10px;
+    transition: 0.3s;
+    background-image: linear-gradient(to right,  #1E73B0, #015088, #004272);
+
+}
+.img{
+    display: flex;
+    justify-content: center;
+    margin-top: 0 !important;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 30%;
+}
+
+div iframe{
+    width: 130%;
+    height: 25vh;
+    max-height: 300px;
+    max-width: 200px;
+}
+.iframe{
+    display: flex;
+    margin: 1.5rem;
+    justify-content: center;
+}
+.section1{
+    background: transparent !important;
+    height: 620px;
+    overflow-x: hidden;
+    text-align: start !important;
+    width: 100% !important;
+    padding: 2rem !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 0 !important;
+    position: relative !important;
+    max-width: 350px !important;
+    overflow-y: hidden;
+}
+div .label{
+    color: gray; 
+    font-family: 'Ek Mukta' !important;
+    font-size: 16px !important;
+
+    font-weight: bold;
+}
+
+.div-form{
+    background-image: linear-gradient(to right, #004272,#1E73B0); 
+    width: 7rem; 
+    height: 2rem; 
+    border-radius: 10px; 
+    border: none; 
+    color: white;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0 !important;
+    margin-left: 2rem;
+}
+.div-form2{
+    background-image: linear-gradient(to right, #004272,#1E73B0); 
+    width: 7rem; 
+    height: 2rem; 
+    border-radius: 10px; 
+    border: none; 
+    color: white;
+    margin-bottom: 0 !important;
+    margin-top: 0.2rem !important;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    margin-left: 2rem;
+
+}

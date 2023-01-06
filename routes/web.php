@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoticesController;
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ReservaUsuarioController;
 use App\Http\Controllers\RolesController;
 use App\Models\Gelatos;
 use App\Models\users_roles;
@@ -53,7 +54,6 @@ Route::get('/error_page', function(){
 Route::get('/home', function (Request $request) {
     $notice = Notices::all();
     $idRolUser = users_roles::where('id_user', Auth::id())->get();
-    $search = trim($request->get('search'));
 /*    $productos = DB::table('productos')
                 ->select('id', 'nombre', 'tipo_producto', 'precio', 'img')
                 ->where('nombre','LIKE', '%'.$search.'%')
@@ -64,7 +64,7 @@ Route::get('/home', function (Request $request) {
     if (($idRolUser[0]->id_rol) == 1) {
         return view('Admin.dashboard', ['notice' => $notice]);
     } else {
-        return view('User.dashboard', compact('search'));
+        return view('User.dashboard');
     }
 })
 ->middleware("auth")
@@ -140,7 +140,10 @@ Route::post('/productos', [ProductoController::class, 'save'] )->middleware('isA
 
 //Route::get('/getProductos', [ProductosController::class, 'getProductos'])->middleware(['auth'])->name('getProductos');
 Route::get('/productosCarrito', [CarritoUsuarioController::class, 'getProductosCarrito'])->middleware(['auth'])->name('productosCarrito');
-Route::post('/addproductosCarrito', [CarritoUsuarioController::class, 'postProductosCarrito'])->middleware(['auth'])->name('postProductosCarrito');
+Route::post('/addproductosCarrito', [CarritoUsuarioController::class, 'postProductosCarrito'])->middleware(['auth'])->name('addproductosCarrito');
+
+Route::get('/reserva', [ReservaUsuarioController::class, 'reservasUser'])->middleware(['auth'])->name('reserva');
+Route::post('/newReserva', [ReservaUsuarioController::class, 'newReserva'])->middleware(['auth'])->name('newReserva');
 
 
 Route::get('/gelato/{id}', [GelatoController::class, 'show'])->name('getGelato');

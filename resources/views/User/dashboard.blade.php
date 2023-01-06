@@ -16,9 +16,14 @@
 </style>
 @endsection
 
+
 @section('js')   
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <script src="js/drag_drop.js"></script>
+@endsection
+
+@section('nav')
+    @extends('layouts.navigation_usuario')
 @endsection
 
 @section('content')
@@ -87,23 +92,48 @@
                 
             </aside>
             
-            <article class=" h-75 bg-secondary" id="carrito">
+            <article class="bg-secondary h-75" style="" id="carrito">
                 <div class="text-white" style="width:95%; height: fit-content; ">
-                    <h1 class="my-4 mx-4">Seleccionados</h1>
+                    <h2 class="my-2 mx-4"><b>Tu carrito</b></h2>
+                    <a href="{{ route('reserva') }}" class="btn btn-info mx-4 my-2">Ir a mi carrito</a>
                 </div>
-                <div class="bg-white d-flex" style="width:95%; height: fit-content; margin-left: auto; margin-right: auto; flex-wrap: wrap; justify-content: space-between;">
-                    <div class="w-full px-3 overflow-auto text-sm h-2/3">
-                        <div v-for="producto in carrito" class="flex justify-between">
-                            <span>@{{ producto . nombre }}</span>
-                            <span class="">@{{ producto . precio }}</span>
+                <div class="bg-white" style="width:95%; height: 75%; overflow-y: auto; margin-left: auto; margin-right: auto; border-radius: 15px;">
+                    <div class="w-100 px-4 py-2">
+                        <div>
+                            <table class="w-100">
+                                <thead class="w-100">
+                                    <tr class="d-flex w-100 " style="justify-content: space-between;">
+                                        <th>
+                                            Producto
+                                        </th>
+                                        <th>
+                                            Precio
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <tr v-for="producto in carrito" class="d-flex w-100" style="justify-content: space-between;" >
+                                        <td>
+                                            <span>@{{ producto . nombre }}</span>
+
+                                        </td>
+                                        <td>
+                                            <span class="">$ @{{ producto . precio }}</span>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="flex justify-between w-full px-3 py-2 text-sm">
-                        <span>Total</span>
-                        <span class="">$ @{{ total }}</span>
+                    <div class="mx-4 pb-2">
+                        <div>
+                            <span><b>Total</b></span>
+                            <span class="">$ @{{ total }}</span>
+                        </div>
                     </div>                
                 </div>
-<!--                
+<!--
 
                     <div class="bg-white d-flex" style="width:95%; height: fit-content; margin-left: auto; margin-right: auto; flex-wrap: wrap; justify-content: space-between;">
                         <p class="my-2 mx-4">Nombre...</p>
@@ -195,6 +225,7 @@
             created: function() {
                 // `this` hace referencia a la instancia vm
                 this.getsCarrito();
+
                 this.getListProductos();
             },
         });

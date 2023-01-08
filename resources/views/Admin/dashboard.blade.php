@@ -123,9 +123,9 @@
                                 </div>
                                 <div class="div_archivos py-2">
                                     <h3><b>Archivos</b></h3>
-                                    <a href="img/post/{{ $notices->archivos }}" class="a_img" style="display: block;" target="__blank">
+                                    <a href="img/notices/{{ $notices->archivos }}" class="a_img" style="display: block;" target="__blank">
                                             {{ $notices->archivos }}
-                                        <img src="img/post/{{ $notices->archivos}}" style="width: 100%; height: 25vh;">
+                                        <img src="img/notices/{{ $notices->archivos}}" style="width: 100%; height: 25vh;">
                                     </a>
                                 </div>  
                             </div>

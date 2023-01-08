@@ -8,10 +8,7 @@
 @endsection
 
 @section('js')   
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-
     <script src="js/dynamicTable/jquery.dynamicTable-1.0.0.js"></script>
-    <script src="js/drag_drop.js"></script>
     <script src="js/productos.js"></script>
 
 @endsection
@@ -62,11 +59,10 @@
                             <th class="text-center" colspan="2">Acciones</th>
                         </tr>
                     </thead>
-                    <tbody class="w-100 contenedor-lista" id="lista">
+                    <tbody class="w-100 contenedor-lista">
                             @csrf
 
                             @foreach ($productos as $producto)
-                            <form action="{{ route('productos.edit', ['id' => $producto->id]) }}" method="post">
 
                                 <tr class="w-100">
                                     <td>
@@ -85,7 +81,7 @@
                                         <a href="{{ route('productos.view', ['id' => $producto->id]) }}" id="editar" class="btn btn-info"><i class="fa-regular fas fa-circle-info"></i></a>
                                     </td>
                                     <td class="menu">
-                                        <form method="POST" action="{{ route('productos.delete', $producto->id) }}">
+                                        <form method="POST" action="{{ route('productos.deleted', ['id' => $producto->id]) }}">
                                             @csrf
 
                                             <button type="submit" id="eliminar" class="btn btn-danger">
@@ -103,7 +99,6 @@
                                 </tr>
 
                             @endforeach
-                        </form>
 
                     </tbody>
                 </table>

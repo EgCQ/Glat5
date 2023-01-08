@@ -17,7 +17,7 @@
     <div class="d-flex w-100" style="height: 100vh; justify-content: center; align-items: center; flex-wrap: wrap;">
         <aside class="w-75 bg-white" style="height: 75%; min-height: 75vh; overflow-y: auto;">
             <table class="w-100 table" style="height: 75%;">
-                <thead class="bg-gray-50 text-center bg-secondary">
+                <thead class="bg-gray-50 text-center bg-secondary" style="">
                     <tr>
                         <th scope="col"
                             class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
@@ -40,26 +40,25 @@
                     <tr v-for="productos in carrito">
                         <td class="">
                             <div class="flex items-center justify-center">
-                                <img class="w-28"  v-bind:src="'/img/post/' + productos.url_img" alt="">
+                                <img class="w-28"  v-bind:src="'/img/post/' + productos.img" alt="">
                             </div>
                         </td>
-                        <td class="">
+                        <td class="w-25">
                             <div>
                                 <h6><b>Nombre</b></h6>
                             </div>
-                            <div class="text-sm font-medium text-gray-900">
+                            <div class="">
                                 @{{ productos . nombre }}
                             </div>
                             <div>
                                 <h6><b>Tipo de producto</b></h6>
                             </div>
-                            <div class="text-sm text-gray-500">
+                            <div class="">
                                 @{{ productos . tipo_producto }}
                             </div>
                         </td>
-                        <td class="">
+                        <td class="w-25">
                             <div class="d-flex h-100" style="align-items: center; justify-content:center;">
-                                
                                 $@{{ productos . precio }}
                             </div>
                         </td>

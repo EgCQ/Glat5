@@ -76,14 +76,17 @@
                                     </div>
                                     <div>
                                         <div class="w-100 d-flex my-4 img" style="justify-content: center; ">
-                                            <img v-bind:src="'/img/post/products/' + productos.img" class="bg-white img" style="width: 75%; height: 20vh;border-radius: 25px;" alt="">
+                                            <img v-bind:src="'/img/post/' + productos.img" class="bg-white img" style="width: 75%; height: 20vh;border-radius: 25px;" alt="">
                                         </div>
                                     </div>
-                                    <button type="button" id="agregar"
-                                    class="px-4 py-2 m-auto text-center btn btn-primary text-white"
-                                    v-on:click="agregar(productos)" >
-                                        Agregar al carrito
-                                    </button>
+                                    <div class="d-flex">
+                                        <button type="button" id="agregar"
+                                        class="px-4 py-2 m-auto text-center btn btn-primary text-white"
+                                        v-on:click="agregar(productos)" >
+                                            Agregar al carrito
+                                        </button>
+                                    </div>
+
                                 </div>
                                 
                             </div>
@@ -101,21 +104,20 @@
                     <div class="w-100 px-4 py-2">
                         <div>
                             <table class="w-100">
-                                <thead class="w-100">
-                                    <tr class="d-flex w-100 " style="justify-content: space-between;">
-                                        <th>
+                                <thead class="w-100 bg-white" style="height: 50px;">
+                                    <tr class="bg-white" style="position: fixed; width: 175px; height: 50px;">
+                                        <th style="float: left;">
                                             Producto
                                         </th>
-                                        <th>
+                                        <th style="float: right;">
                                             Precio
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody >
-                                    <tr v-for="producto in carrito" class="d-flex w-100" style="justify-content: space-between;" >
+                                    <tr v-for="producto in carrito" class="d-flex w-100" style="justify-content: space-between; border-bottom: 1px solid black;" >
                                         <td>
                                             <span>@{{ producto . nombre }}</span>
-
                                         </td>
                                         <td>
                                             <span class="">$ @{{ producto . precio }}</span>

@@ -20,7 +20,7 @@ class NoticesController extends Controller
         $nombreImagen = Str::slug($title).".".$img->guessExtension();
 
         $name=time().".".$img->guessExtension();
-        $ruta = public_path("img/post/");
+        $ruta = public_path("img/notices/");
         copy($img->getRealPath(),$ruta.$nombreImagen);
             Notices::create([
                 'archivos' => $nombreImagen,
@@ -59,7 +59,7 @@ class NoticesController extends Controller
         $img = $request->file('archivos');
         $nombreImagen = Str::slug($title).".".$img->guessExtension();
 
-        $ruta = public_path("img/post/");
+        $ruta = public_path("img/notices/");
         copy($img->getRealPath(),$ruta.$nombreImagen);
         $notice->update([
             'archivos' => $nombreImagen,

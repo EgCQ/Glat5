@@ -133,7 +133,7 @@ Route::get('/productos/{id}', [ProductoController::class, 'viewProduct'] )->midd
 
 Route::post('/productos_updated/{id}', [ProductoController::class, 'update'] )->middleware('isAdmin')->name('productos.edit');
 
-Route::post('/productos_deleted/{id}', [ProductoController::class, 'delete'] )->middleware('isAdmin')->name('productos.delete');
+Route::post('/productos_deleted/{id}', [ProductoController::class, 'delete'] )->middleware('isAdmin')->name('productos.deleted');
 
 Route::post('/productos', [ProductoController::class, 'save'] )->middleware('isAdmin')->name('productos.saved');
 

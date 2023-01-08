@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\productos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductoController extends Controller
@@ -29,13 +30,13 @@ class ProductoController extends Controller
         for ($i=0; $i < count($nombre) ; $i++ ) { 
             $nombreImagen = Str::slug($nombre[$i]).".".$img[$i]->guessExtension();
             /*$name=time().".".$img->guessExtension();*/
-            $ruta = public_path("img/post/products/");
+            $ruta = public_path("img/post/");
             copy($img[$i]->getRealPath(),$ruta.$nombreImagen);
             $db = [
                 'nombre' => $nombre[$i],
                 'tipo_producto' => $tipo_producto[$i],
                 'precio' => $precio[$i],
-                'img' => $nombreImagen[$i],
+                'img' => $nombreImagen,
             ];
             DB::table('productos')->insert($db);
         }
@@ -62,7 +63,7 @@ class ProductoController extends Controller
         $nombre = $request->nombre;
         $img = $request->file('img');
         $nombreImagen = Str::slug($nombre).".".$img->guessExtension();
-        $ruta = public_path("img/post/products/");
+        $ruta = public_path("img/post/");
         copy($img->getRealPath(),$ruta.$nombreImagen);
         $productos->update([
             'nombre' => request('nombre'),
@@ -74,11 +75,10 @@ class ProductoController extends Controller
         return redirect('/productos')->with('success','Producto editado');
     }
 
-    public function delete($id){
-
-        $producto = productos::find($id);
-        $producto->delete();
+    public function delete(productos $id){
+        $url = "public/".$id->img;
+        Storage::delete($url);
+        $id->delete();
         return redirect('/productos')->with('success','Producto eliminado');
-
     }
 }

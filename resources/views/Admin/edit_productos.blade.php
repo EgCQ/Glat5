@@ -94,7 +94,7 @@
             const fileInput = document.querySelector('input[type="file"]');
             
             // Create a new File objectn
-            const myFile = new File(['<?php echo 'img/post/products$producto->img'?>'], '<?php echo $producto->img ?? old('$producto->img');  ?> ', {
+            const myFile = new File(['<?php echo 'img/post/$producto->img'?>'], '<?php echo $producto->img ?? old('$producto->img');  ?> ', {
                 type: 'text/plain',
                 lastModified: new Date(),
                 

@@ -12,13 +12,6 @@
     <header id="headernav" class="header">
         <nav id="navb">
             <div class="main">
-                <div id="img">
-
-                    <a href="{{ route('/') }}" id="img1" class="element_a">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Koi_wa_Sekai_Seifuku_no_Ato_de_Logo.png/280px-Koi_wa_Sekai_Seifuku_no_Ato_de_Logo.png" alt="gelato">
-                    </a>
-                </div>
-
                 <div id="nav-ul">
                         <a href="#" id="btn-add">
                             <i class="fas fa-bars"></i>
@@ -26,28 +19,53 @@
                         <a href="#" id="btn-remove">
                             <i class="fa-solid fas fa-xmark"></i>
                         </a>
-                    <div id="nav-ul-li" class="nav-li">
+                    <div id="nav-ul-li">
                         <ul id="ul">
-                            <div id="ul1">
-                                <li><a href="{{ route('gelato') }}"  class="element_a">Gelatos</a></li>
-                                <li><a href="{{ route('contactos.contacto') }}"  class="element_a">Contactanos</a></li>
-                                <li><a href="{{ route('noticias_gelato') }}" class="element_a">Noticias Gelato</a></li>
-                                <div class="ul2">
-                                    @if (Route::has('login'))
-                                        @auth
-                                            <li class="left" id="dashboard">
-                                                <a href="{{ url('/home') }}" class="element_a">DASHBOARD</a>
-                                            </li>
-                                        @else
-                                            <li class="left" id="login"><a href="{{ route('login') }}"  class="element_a">Ingresar a la plataforma</a></li>
-        
-                                            @if (Route::has('register.index'))
-                                                <li class="left" id="register"><a href="{{ route('register.index') }}"  class="element_a">Registrar como Gelato</a></li>
-                                            @endif
-                                        @endauth
-                                    @endif
-                                </div>
+                            <div id="ul1" style="display: flex; align-items: center;">
+                                <li id="img">
+                                    <a href="{{ route('/') }}" id="img1" class="element_a" tooltip="Inicio" flow="down">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Koi_wa_Sekai_Seifuku_no_Ato_de_Logo.png/280px-Koi_wa_Sekai_Seifuku_no_Ato_de_Logo.png" alt="gelato">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('contactos.contacto') }}"  class="element_a" tooltip="Contactanos" flow="down">
+                                        <i class="fa-solid fa-envelope-open"></i>                                    
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('noticias_gelato') }}" class="element_a" tooltip="Noticias" flow="down">
+                                        <i class="fa-solid fa-message fa-message-quote"></i>
+                                    </a>
+                                </li>
+                                
                             </div>
+                            <div id="ul2">
+                                @if (Route::has('login'))
+                                    @auth
+                                        <li id="dashboard">
+                                            <a href="{{ url('/home') }}" class="element_a" tooltip="Entrar al Dashboard" flow="down">DASHBOARD</a>
+                                        </li>
+                                    @else
+                                    <div class="d-flex">
+                                        <li  id="login">
+                                            <a href="{{ route('login') }}"  class="element_a" tooltip="Inicia sesion" flow="down">
+                                                <i class="fa-sharp fa-solid fa-door-open"></i>
+                                            </a>
+                                        </li>
+    
+                                        @if (Route::has('register.index'))
+                                            <li  id="register">
+                                                <a href="{{ route('register.index') }}"  class="element_a" tooltip="Registrate" flow="down">
+                                                    <i class="fa-solid fa-user-plus"></i>
+                                                </a>
+                                            </li>
+                                        @endif
+                                    </div>
+                                        
+                                    @endauth
+                                @endif
+                            </div>
+                            
                         </ul>
                     </div>
                 </div>

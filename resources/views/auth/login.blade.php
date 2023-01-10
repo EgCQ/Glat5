@@ -50,7 +50,7 @@
                         <i class="fas fa-key iconss" style="transform: translate(0.7rem, 0.5rem);"></i>
 
                         <input type="password" id="password" name="password" placeholder="Password">
-                        <button id="pass_show" type="button">
+                        <button id="pass_show" type="button" tooltip="Mostrar">
                             <i class="fas fa-eye icon"></i>
                         </button>
                         @error ('password')
@@ -81,7 +81,7 @@
         <br><br><br><br><br>
 
     </main>
-<!--    <script>
+    <script>
         let user = document.getElementById("email").value;
         var btn_submit = document.getElementById("submit");
         var btn_show_pass = document.getElementById("pass_show");
@@ -92,13 +92,18 @@
             if(cambio.type == "password"){
 			    cambio.type = "text";
 			    $('.icon').removeClass('fas fa-eye').addClass('fas fa-eye-slash');
+                
+                btn_show_pass.setAttribute("tooltip", "Esconder");
+
             }else{
                 cambio.type = "password";
                 $('.icon').removeClass('fas fa-eye-slash').addClass('fas fa-eye');
+                btn_show_pass.setAttribute("tooltip", "Mostrar");
+
             }
         }
 
         
-    </script>-->
+    </script>
 </body>
 </html>

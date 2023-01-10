@@ -28,7 +28,7 @@ window.onload = function () {
 
     var ul = document.getElementById("ul");
     var ul1 = document.getElementById("ul1");
-    var ul2 = document.querySelector(".ul2");
+    var ul2 = document.getElementById("ul2");
     var btnadd = document.getElementById("btn-add");
     var btnremove = document.getElementById("btn-remove");
 
@@ -38,6 +38,7 @@ window.onload = function () {
     function show_menu(){
         headernav.style.height = "100vh";
         headernav.style.zIndex = "1";
+        headernav.style.backgroundColor = "red";
         navb.style.height = "100vh";
         main.style.height = "100vh";
         main.style.flexDirection = "column";
@@ -46,13 +47,17 @@ window.onload = function () {
         img.style.justifyContent = "center";
         nav_ul.style.flexDirection = "column";
         nav_ul_li.style.display = "flex";
+        nav_ul_li.style.height = "100vh";
         nav_ul_li.style.justifyContent = "center";
+        ul.style.display = "flex";
 
         ul.style.flexDirection = "column";
         ul1.style.flexDirection = "column";
         ul1.style.textAlign = "center";
         ul2.style.flexDirection = "column";
         ul2.style.width = "100%";
+        ul2.style.height = "100vh";
+
         btnadd.style.display ="none";
         btnremove.style.display ="flex";
         btnremove.style.justifyContent ="center";
@@ -78,8 +83,10 @@ window.onload = function () {
         ul.style.flexDirection = "column";
         ul1.style.flexDirection = "column";
         ul1.style.textAlign = "center";
-        ul2.style.flexDirection = "column";
+        ul2.style.flexDirection = "row";
         ul2.style.width = "100%";
+        ul2.style.height = "10vh";
+
         btnadd.style.display ="flex";
         btnremove.style.display ="none";
         for (let i = 0; i < li.length; i++) {
@@ -91,8 +98,9 @@ window.onload = function () {
     function myFunction(x) {
         if (x.matches) { // If media query matches
             btnadd.style.display ="flex";
-
             nav_ul_li.style.display = "none";
+            ul.style.display = "none";
+
 
         } else {
             headernav.style.height = "10vh";
@@ -102,6 +110,8 @@ window.onload = function () {
             btnadd.style.display ="none";
             btnremove.style.display ="none";
             nav_ul_li.style.display = "block";
+            ul.style.display = "flex";
+
             main.style.flexDirection = "row";
             nav_ul.style.flexDirection = "row";
             ul.style.flexDirection = "row";
@@ -112,7 +122,7 @@ window.onload = function () {
         }
       }
       
-      var x = window.matchMedia("(max-width: 600px)")
+      var x = window.matchMedia("(max-width: 795px)")
       myFunction(x) // Call listener function at run time
       x.addEventListener("change",myFunction) // Attach listener function on state changes
 }

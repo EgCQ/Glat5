@@ -14,10 +14,19 @@
 
 @section('content')
 <div class="w-100 h-100" id="pedidos">
-    <div class="d-flex w-100" style="height: 100vh; justify-content: center; align-items: center; flex-wrap: wrap;">
-        <aside class="w-75 bg-white" style="height: 75%; min-height: 75vh; overflow-y: auto;">
-            <table class="w-100 table" style="height: 75%;">
-                <thead class="bg-gray-50 text-center bg-secondary" style="">
+    <div class="d-flex w-100" style="height: 100vh; justify-content: flex-end; flex-direction: column; align-items: center; flex-wrap: no-wrap;">
+        <div class="w-75 bg-white d-flex p-2" style="">
+            <a href="{{ route('home') }}" class="btn btn-success d-flex" style="width: 50px; height: 50px; align-items: center;" tooltip="Volver">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <h3 class="px-2 pt-2">
+                <b>Reserva tu orden</b>
+            </h3>
+        
+        </div>
+        <aside class="w-75 bg-white" style="height: 75%; min-height: 75vh; overflow-y: scroll;">
+            <table class="w-100 table" style="height: 100%;">
+                <thead class="bg-secondary text-center" style="position:sticky; top: 0px;">
                     <tr>
                         <th scope="col"
                             class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
@@ -25,22 +34,22 @@
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Nombre / Tipo de producto
+                            Producto
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             Precio
                         </th>
-                        <th scope="col" class="">
-                            <span class="">Edit</span>
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                            Eliminar
                         </th>
                     </tr>
                 </thead>
-                <tbody style="height: 75%" class="text-center">
+                <tbody>
                     <tr v-for="productos in carrito">
                         <td class="">
-                            <div class="flex items-center justify-center">
-                                <img class="w-28"  v-bind:src="'/img/post/' + productos.img" alt="">
+                            <div class="text-center">
+                                <img v-bind:src="'/img/post/' + productos.img" alt="" width="100px" height="100px">
                             </div>
                         </td>
                         <td class="w-25">
@@ -50,26 +59,29 @@
                             <div class="">
                                 @{{ productos . nombre }}
                             </div>
-                            <div>
-                                <h6><b>Tipo de producto</b></h6>
+                            <div class="pt-4">
+                                <h6><b>Tipo</b></h6>
                             </div>
                             <div class="">
                                 @{{ productos . tipo_producto }}
                             </div>
                         </td>
                         <td class="w-25">
-                            <div class="d-flex h-100" style="align-items: center; justify-content:center;">
+                            <div class="d-flex" style="height: 100%;justify-content:center; align-items:center">
                                 $@{{ productos . precio }}
                             </div>
                         </td>
-                        <td class="py-4 text-sm font-medium text-center whitespace-nowrap">
-                            <button class="btn btn-danger" v-on:click="quitar(productos . id)">
-                                Quitar
-                            </button>
+                        <td class="">
+                            <div class="d-flex" style="height: 100%; justify-content:center; align-items:center">
+                                <button class="btn btn-danger" v-on:click="quitar(productos . id)">
+                                    <span>
+                                        <i class="fa-regular fas fa-trash" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+
                         </td>
                     </tr>
-
-                    <!-- More items... -->
                 </tbody>
             </table>
         </aside>

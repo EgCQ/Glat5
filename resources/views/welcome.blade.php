@@ -22,21 +22,21 @@
                 <div class="slider" id="slider">
 
                     <div class="welcome-div activer">
-                        <img src="img/img1.jpg" alt="" class="imgs">
+                        <img src="img/other/img1.jpg" alt="" class="imgs">
                         <div class="div-h1">
                             <h1>Bienvenido a Gelato</h1>
                         </div>
                         
                     </div>
                     <div class="welcome-div">
-                        <img src="img/img2.jpg" alt="" class="imgs">
+                        <img src="img/other/img2.jpg" alt="" class="imgs">
 
                         <h1>
                             Conoce acerca de las<br>novedades de esta semana
                         </h1>
                     </div>
                     <div class="welcome-div">
-                        <img src="img/img3.jpg" alt="" class="imgs">
+                        <img src="img/other/img3.jpg" alt="" class="imgs">
 
                         <h1>
                             Deseas formar parte de nuestro<br> equipo, inscribete aquí!

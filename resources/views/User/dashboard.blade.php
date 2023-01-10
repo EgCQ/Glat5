@@ -29,7 +29,7 @@
 @section('content')
     <div class="w-100 h-100" id="app">
         <div class="d-flex w-100 h-100" style="justify-content: center; align-items: center; flex-wrap: wrap;">
-            <aside class="w-75 bg-white" style="height: fit-content; min-height: 75vh;">
+            <aside class="bg-white" style="height: fit-content; min-height: 75vh; width: 70%;">
                 <div class="d-flex" style="flex-wrap: wrap; justify-content: space-between;">
                     <div class="">
                         <h2 class="my-2 mx-4">Productos</h2>
@@ -39,10 +39,10 @@
                         <div class="d-flex" style="flex-wrap: wrap">
                             
                                 <div class="my-2" style="width: 90%;">
-                                    <input type="text" name="search" id="search"  class="form-control w-100 mx-4" style="" placeholder="Buscar">
+                                    <input type="text" name="search" id="search" class="form-control w-100 mx-4" style="" placeholder="Buscar">
                                 </div>
                                 <div class="my-2 d-flex" style="justify-content: center; width: 10%;">
-                                    <button type="submit" class="btn btn-primary text-white h-100">
+                                    <button type="submit" class="btn btn-primary text-white h-100" tooltip="Buscar">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
                                 </div>
@@ -75,15 +75,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="w-100 d-flex my-4 img" style="justify-content: center; ">
+                                        <div class="w-100 d-flex my-2 img" style="justify-content: center; ">
                                             <img v-bind:src="'/img/post/' + productos.img" class="bg-white img" style="width: 75%; height: 20vh;border-radius: 25px;" alt="">
                                         </div>
                                     </div>
                                     <div class="d-flex">
                                         <button type="button" id="agregar"
-                                        class="px-4 py-2 m-auto text-center btn btn-primary text-white"
-                                        v-on:click="agregar(productos)" >
-                                            Agregar al carrito
+                                        class="px-4 mb-2 m-auto text-center btn btn-primary text-white"
+                                        v-on:click="agregar(productos)" tooltip="Agregar al carrito">
+                                            <i class="fa-duotone fas fa-cart-plus"></i>
                                         </button>
                                     </div>
 
@@ -96,43 +96,39 @@
             </aside>
             
             <article class="bg-secondary h-75" style="" id="carrito">
-                <div class="text-white" style="width:95%; height: fit-content; ">
+                <div class="text-white d-flex" style="width:95%; height: fit-content; align-items:center">
                     <h2 class="my-2 mx-4"><b>Tu carrito</b></h2>
-                    <a href="{{ route('reserva') }}" class="btn btn-info mx-4 my-2">Ir a mi carrito</a>
+                    <a href="{{ route('reserva') }}" class="btn btn-info mx-4 my-2" tooltip="Ver mis productos">
+                        <i class="fa-duotone fas fa-cart-shopping" style="color: white"></i>
+                    </a>
                 </div>
-                <div class="bg-white" style="width:95%; height: 75%; overflow-y: auto; margin-left: auto; margin-right: auto; border-radius: 15px;">
-                    <div class="w-100 px-4 py-2">
-                        <div>
-                            <table class="w-100">
-                                <thead class="w-100 bg-white" style="height: 50px;">
-                                    <tr class="bg-white" style="position: fixed; width: 175px; height: 50px;">
-                                        <th style="float: left;">
-                                            Producto
-                                        </th>
-                                        <th style="float: right;">
-                                            Precio
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody >
-                                    <tr v-for="producto in carrito" class="d-flex w-100" style="justify-content: space-between; border-bottom: 1px solid black;" >
-                                        <td>
-                                            <span>@{{ producto . nombre }}</span>
-                                        </td>
-                                        <td>
-                                            <span class="">$ @{{ producto . precio }}</span>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div class="bg-white mx-4" style="width:90%; height: 75%; overflow-y: auto; border-radius: 15px;">
+                    <div class=" px-4">
+                        <div class="d-flex bg-white pt-2 pb-2" style="align-items: center; justify-content:space-between; position: sticky; top: 0px;">
+                            <div>
+                                <b>
+                                    Producto
+                                </b>
+                                
+                            </div>
+                            <div>
+                                <b>
+                                    Precio
+                                </b>
+                            </div>
+                        </div>
+                        <div class="d-flex" style="justify-content: space-between;" v-for="producto in carrito">
+                            <div style="padding-right: 2rem">
+                                @{{ producto . nombre }}
+                            </div>
+                            <div style="padding-left: 2rem">
+                                $ @{{ producto . precio }}
+                            </div>
                         </div>
                     </div>
-                    <div class="mx-4 pb-2">
-                        <div>
-                            <span><b>Total</b></span>
-                            <span class="">$ @{{ total }}</span>
-                        </div>
+                    <div class="pb-2 pt-2 px-4 bg-white" style="position:sticky; bottom: 0px; padding-left: 0.5rem;">
+                        <span><b>Total</b></span>
+                        <span class="">$ @{{ total }}</span>
                     </div>                
                 </div>
 <!--

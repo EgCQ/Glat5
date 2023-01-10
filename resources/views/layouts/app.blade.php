@@ -25,7 +25,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
-<body >
+<body class="bg-white">
     @yield('nav')
     @yield('content')
 

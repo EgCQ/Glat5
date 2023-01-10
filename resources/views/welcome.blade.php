@@ -3,145 +3,49 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
-        <title>Gelato Five</title>        
+        <title>Gelato Five</title> 
     </head>
-    <body class="antialiased">
+    <body class="d-flex">
 
         @include('navbar.nav')
-        <div class="welcome" id="welcome">
-
-                <input type="button" class="welcome-btn rt" id="rt" value="&larr;">
-<!--                <input type="button" class="welcome-btn" id="ad" value="&#8594;">!-->
-
-                <div class="div-btn-circulo">
-                    <div class="div-btn-circulo-2" id="div-btn-circulo-2">
-
-                    </div>
+        <section class="d-flex w-100 h-100" style="justify-content: center; align-items: center;">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                <div class="slider" id="slider">
-
-                    <div class="welcome-div activer">
-                        <img src="img/other/img1.jpg" alt="" class="imgs">
-                        <div class="div-h1">
-                            <h1>Bienvenido a Gelato</h1>
-                        </div>
-                        
-                    </div>
-                    <div class="welcome-div">
-                        <img src="img/other/img2.jpg" alt="" class="imgs">
-
-                        <h1>
-                            Conoce acerca de las<br>novedades de esta semana
-                        </h1>
-                    </div>
-                    <div class="welcome-div">
-                        <img src="img/other/img3.jpg" alt="" class="imgs">
-
-                        <h1>
-                            Deseas formar parte de nuestro<br> equipo, inscribete aquí!
-                        </h1>
-                    </div>
-
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="img/other/img1.jpg" class="d-block" style="background-size: cover;" alt="img1">
+                    <h1>Bienvenido a Gelato</h1>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/other/img2.jpg" class="d-block" style="background-size: cover;" alt="img2">
+                    <h1>
+                        Conoce acerca de lasnovedades de esta semana
+                    </h1>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/other/img3.jpg" class="d-block" style="background-size: cover;" alt="img3">
+                    <h1>
+                        Deseas formar parte de nuestro equipo, inscribete aquí!
+                    </h1>
+                  </div>
                 </div>
-                
-        </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">&larr;</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">&#8594;</span>
+                </button>
+            </div>
+    
+        </section>
 
     </body>
-    <script>
-    const slider = document.querySelector("#slider"); 
-    const dbc2 = document.querySelector("#div-btn-circulo-2"); 
-
-    let sliderSection = document.querySelectorAll(".welcome-div");
-    let sliderSectionLast = sliderSection[sliderSection.length - 1];
-    const btn_rt = document.querySelector("#rt");
-
-
-    function create_button_add() {
-        var welcome = document.getElementById("welcome");
-        var ad = document.createElement("input");
-        ad.setAttribute("type", "button");
-        ad.setAttribute("id", "ad");
-        ad.classList.add("ad");
-
-        ad.classList.add("welcome-btn");
-        ad.value = "→";
-        
-        welcome.appendChild(ad);
-    }
-
-    create_button_add();
-    const btn_ad = document.querySelector("#ad");
-
-    slider.insertAdjacentElement('afterbegin', sliderSectionLast);
-    btn_rt.addEventListener("click", retroceder);
-    btn_ad.addEventListener("click", adelantar);
-
-
-    function retroceder() {
-        let sliderSection = document.querySelectorAll(".welcome-div");
-        let sliderSectionLast = sliderSection[sliderSection.length - 1];
-        let sliderSections = slider.children;
-
-        var slide_right = slider.style.marginLeft = "0%";
-        slider.style.transition = "margin-left 0.3s";
-
-        sliderSections[2].classList.remove("activer");
-        sliderSections[0].classList.remove("activer");
-        setTimeout(function(){
-            slider.style.transition = "none";
-            slider.insertAdjacentElement('afterbegin', sliderSectionLast);
-            slider.style.marginLeft = "-100%";
-            sliderSections[1].classList.add("activer");
-            sliderSections[2].classList.remove("activer");
-            sliderSections[0].classList.remove("activer");
-
-        }, 300);    
-    }
-    function adelantar() {
-        let sliderSectionFirst = document.querySelectorAll(".welcome-div")[0];
-        let sliderSections = slider.children;
-        var sliderSection2 = document.querySelector("#slider");
-        var circles = document.getElementById("btn-circle");
-        var slide_left = slider.style.marginLeft = "-200%";
-        slider.style.transition = "margin-left 0.3s";
-        sliderSections[0].classList.remove("activer");
-        sliderSections[2].classList.remove("activer");
-        for (let i = 0; i < sliderSection.length; i++) {
-            console.log(sliderSection[i]);
-        }
-
-            
-        setTimeout(function(){
-            slider.style.transition = "none";
-            slider.insertAdjacentElement('beforeend', sliderSectionFirst);
-            slider.style.marginLeft = "-100%";
-            sliderSections[1].classList.add("activer");
-            sliderSections[0].classList.remove("activer");
-
-        }, 300);
-        
-
-    }
-    setInterval(() => {
-        adelantar()
-    }, 5000);
-    function create_button_circle() {
-        var div_btn_circulo_2 = document.getElementById("div-btn-circulo-2");
-
-        for (let i = 0; i < sliderSection.length; i++) {
-            var circle = document.createElement("button");
-            circle.setAttribute("id", "btn-circle" + 1);
-            circle.setAttribute("type", "button");
-            
-            circle.classList.add("btn-circulo");
-            div_btn_circulo_2.appendChild(circle);
-
-        }
-    }
-    create_button_circle();
-    
-
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>
 

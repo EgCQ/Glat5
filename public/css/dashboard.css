@@ -1,32 +1,28 @@
-main{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
+form{
+    margin-block-end: 0em !important;
+
 }
 
 .textarea{
     width: 75%;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 25px;
     background-color: white;
     box-shadow: 1px 1px 2px 2px #888888;
     margin-left: auto;
     margin-right: auto;
     height: fit-content;
-    margin-top: 10rem;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.5s;
+
 }
 .h4{
     width: 100% !important;
     height: fit-content;
     background-color: gray;
     border-radius: 50px;
-    
+    margin-bottom: 0rem !important;
 }
 
 #divh4{
@@ -166,7 +162,6 @@ textarea:focus{
     left: 50%;
     transform: translate(-50%, -50%);
     animation: show 0.3s;
-
 }
 .modal-window ul li{
 list-style: none;
@@ -330,7 +325,118 @@ input[type=file]{
 
 }
 .div_archivos{
-padding-left: 1rem;
-padding-right: 1rem;
+
 padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 905px) {
+
+
+    .div_h4_2{
+        transition: all 0.5s;
+        
+    }
+
+}
+@media screen and (max-width: 770px) {
+
+
+    #div_mensaje{
+        flex-wrap: wrap !important;
+        transition: all 0.5s;
+    }
+    .div_h4_2{
+        transition: all 0.5s;
+        width: 150% !important;
+    }
+    #div_h4{
+        transform: translate(-75%, -100%) !important;
+
+    }
+
+}
+@media screen and (max-width: 600px) {
+
+
+    .textarea{
+        width: 95% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        transition: all 0.5s;
+    }
+    #notices{
+        width: 95% !important;
+        transition: all 0.5s;
+
+    }
+
+    #div_h4{
+        margin-top: 0.5rem !important;
+        transition: all 0.5s;
+        transform: translate(-98%, -100%) !important;
+
+    }
+    .div_h4_2{
+        transition: all 0.5s;
+        width: 195% !important;
+    }
+
+
+}
+@media screen and (max-width: 412px) {
+
+    #div_title2{
+        justify-content: center !important;
+        flex-direction: column-reverse !important;
+        transition: all 0 5s;
+        text-align: center;
+    }
+    .custom-file{
+        flex-wrap: wrap;
+        justify-content: center !important;
+    }
+    .s_file{
+        width: 100px !important;
+        height: 100px !important;
+        margin-left: 0rem !important;
+        margin-right: 0rem !important;
+    }
+
+
+}
+@media screen and (max-width: 305px) {
+
+    #div_h4{
+        transition: all 0.5s;
+    }
+    .max_caracteres{
+        height: 8vh !important;
+    }
+    h3{
+        margin-top: 0rem !important;
+    }
+
+
+}
+#div_h4{
+    transition: all 0.5s;
+    z-index: 1;
+    position: sticky;
+    top: 13% !important;
+    padding-top: 0rem !important;
+    padding: 0rem !important;
+}
+#div_mensaje{
+    transition: all 0.5s;
+}
+#div_title2{
+    transition: all 0 5s;
+}
+#notices{
+    transition: all 0.5s;
+
+}
+.btn_c{
+    width: fit-content !important;
 }

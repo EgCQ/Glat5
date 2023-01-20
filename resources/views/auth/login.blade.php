@@ -9,7 +9,6 @@
     <link href='https://fonts.googleapis.com/css?family=Ek Mukta' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 </head>
 @include('navbar.nav')
 <body>
@@ -38,7 +37,7 @@
                     @csrf
                     <div class="div-form1">
                         <i class="fa-light fa-at iconss" ></i>
-                        <input type="email" name="email" value="{{ old('email') }}" class="email" id="email" placeholder="Email" autocomplete="off">
+                        <input type="email" name="email" value="{{ old('email') }}" class="email" id="email" placeholder="Correo" autocomplete="on">
                         @error ('email')
                             <div class="modal-window">
                                 {{$message}}
@@ -46,10 +45,10 @@
                         @enderror
 
                     </div>
-                    <div class="div-form1">
+                    <div class="div-form1" style="flex-wrap: nowrap">
                         <i class="fas fa-key iconss" style="transform: translate(0.7rem, 0.5rem);"></i>
 
-                        <input type="password" id="password" name="password" placeholder="Password">
+                        <input type="password" id="password" name="password" placeholder="Contraseña">
                         <button id="pass_show" type="button" tooltip="Mostrar">
                             <i class="fas fa-eye icon"></i>
                         </button>

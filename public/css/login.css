@@ -12,11 +12,14 @@ section{
     min-height: 550px;
     max-height: 520px;
     text-align: start;
-    transform: translateY(5rem);
+    transform: translateY(0.5rem);
     box-shadow: 20px 10px 30px 0px black;
     background-image: linear-gradient(#1E73B0, #457ea7, #2f1297, #150063);
 }
-
+section:first-child{
+    background: rgb(8, 15, 83) !important;
+    width: 19%;
+}
 .backg{
     position: fixed !important;
     width: 100% !important;
@@ -31,7 +34,7 @@ section{
 }
 
 input[type=email], input[type= text], input[type= password]{
-    width: 90%;
+    width: 100%;
     height: 2.5rem;
     border-radius: 10px;
     border: none;
@@ -118,26 +121,19 @@ div button[type=submit]:hover{
     background-image: linear-gradient(to right,  #1E73B0, #015088, #004272);
 }
 
-.section1{
-    background: rgb(8, 15, 83) !important;
-    height: 35vh !important;
-    max-width: 200px;
-    overflow-x: hidden;
-    width: 20% !important;
 
-}
 
 @media screen and (max-width: 971px) {
-    .section1{
-        min-width: 695px;
-        width: 100% !important;
+    section:first-child{
+        width: 100%;
+        min-height: 0px;
+        margin-bottom: 0px;
+
     }
     .div-label{
         width: 100%;
     }
-    section{
-        min-height: 320px !important;
-    }
+
     
     .backg{
         overflow-y: auto;
@@ -148,11 +144,8 @@ div button[type=submit]:hover{
 .div-form1{
     display: flex !important;
     flex-wrap: wrap;
-    width: 105% !important;
-    margin: 0.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    margin-left: 1rem;
+    width: 100% !important;
+    padding: 0.5rem;
 }
 
 #div-section1{
@@ -165,77 +158,6 @@ div button[type=submit]:hover{
 }
 
 
-
-    @media screen and (min-height: 828px) {
-        section{
-            transform: translateY(6rem);
-
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh;
-            max-height: 550px;
-            z-index: -1;
-
-        }
-
-    }
-
-
-
-
-    @media screen and (min-height: 994px) {
-        section{
-            transform: translateY(7rem);
-
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh;
-            max-height: 550px;
-            z-index: -1;
-
-        }
-
-    }
-    @media screen and (min-height: 1326px) {
-        section{
-            transform: translateY(9rem);
-            z-index: -1;
-
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh;
-            max-height: 550px;
-
-        }
-
-    }
-    @media screen and (min-height: 1989px) {
-        section{
-            transform: translateY(13rem);
-            z-index: -1;
-
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh;
-            max-height: 700px !important;
-
-        }
-
-    }
-    @media screen and (min-height: 2652px) {
-        section{
-            transform: translateY(17rem);
-            z-index: -1;
-
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh;
-            max-height: 600px;
-
-        }
-
-    }
-
 /* LOGIN CSS*/
 
 #pass_show{
@@ -245,7 +167,9 @@ div button[type=submit]:hover{
     margin-left: 0px !important;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
-    transform: translate(-3.5rem, -0.2rem);
+    transform: translateX(-2.5rem);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 #pass_show_confirmation{
@@ -255,7 +179,9 @@ div button[type=submit]:hover{
     margin-left: 0px !important;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
-    transform: translate(-3.5rem, -0.2rem);
+    transform: translateX(-2.5rem);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 textarea::placeholder{
@@ -327,6 +253,13 @@ div textarea{
 }
 
 /* REGISTER CSS */
+.div-form-pass{
+    display: flex !important;
+    flex-wrap: wrap;
+    width: 100% !important;
+    padding: 0.5rem;
+}
+
 
 #pass_show_reg{
     background: transparent !important;
@@ -350,8 +283,7 @@ div textarea{
 
 .div-form2{
     display: flex !important;
-    flex-wrap: wrap;
-    width: 50% !important;
+    width: 50%;
 }
 
 .div-form2 input{
@@ -368,6 +300,20 @@ div textarea{
     font-weight: bold;
     color: black;
     
+}
+
+@media screen and (max-width: 410px) {
+
+    .div-form2{
+        width: 100%;
+    }
+    .div-form2:first-child{
+        padding-right: 0rem !important;
+    }
+    .div-form2:nth-child(2){
+        padding-left: 0rem !important;
+
+    }
 }
 
 /* */

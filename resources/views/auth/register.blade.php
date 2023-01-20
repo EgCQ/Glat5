@@ -55,19 +55,19 @@
                         @enderror
                     </div>
 
-                    <div class="div-form">
-                        <div class="div-form2">
+                    <div class="div-form-pass">
+                        <div class="div-form2" style="padding-right: 0.5rem;">
                             <i class="fas iconss2 fa-key"></i>
 
                             <input type="password" id="password" name="password" placeholder="Contraseña">
-                            <button id="pass_show_reg" type="button">
+                            <button id="pass_show" type="button">
                                 <i class="fas fa-eye-slash icon"></i>
                             </button>
                         </div>
-                        <div class="div-form2">
+                        <div class="div-form2" style="padding-left: 0.5rem;">
                             <i class="fa-light fas iconss2 fa-check"></i>
                             <input type="password" id="confirmation" name="confirmation" placeholder="Confirme su contraseña">
-                            <button id="pass_show_confirmation_reg" type="button">
+                            <button id="pass_show_confirmation" type="button">
                                 <i class="fas  fa-eye-slash icon2"></i>
                             </button>
                         </div>
@@ -94,8 +94,8 @@
     <script>
         let user = document.getElementById("email").value;
         var btn_submit = document.getElementById("submit");
-        var btn_show_pass = document.getElementById("pass_show_reg");
-        var show_pass_confirmation = document.getElementById("pass_show_confirmation_reg");
+        var btn_show_pass = document.getElementById("pass_show");
+        var show_pass_confirmation = document.getElementById("pass_show_confirmation");
 
         var cambio = document.getElementById("password");
         var confirmation = document.getElementById("confirmation");

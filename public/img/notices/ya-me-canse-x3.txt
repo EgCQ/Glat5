@@ -1,0 +1,34 @@
+Algoritmo Ejercicio1
+	Definir tecla1 Como Caracter;
+	Escribir 'Presiona cualquier tecla: ';
+	Leer tecla1;
+	mayus <- 'Mayúscula';
+	minus <- 'Minúscula';
+	Mientras tecla1<>'*' Hacer
+		tecla_invalida <- 'La tecla presionada '+tecla1+' no corresponde a ninguna letra';
+		Si ((tecla1>='a') Y (tecla1<='z')) O ((tecla1>='A') Y (tecla1<='Z')) Entonces
+			Si  NO (tecla1=='a' O tecla1=='e' O tecla1=='i' O tecla1=='o' O tecla1=='u' O tecla1=='A' O tecla1=='E' O tecla1=='I' O tecla1=='O' O tecla1=='U') Entonces
+				Si tecla1==Minusculas(tecla1) Entonces
+					Escribir tecla1,' Es una consonante, esta en ',minus;
+				SiNo
+					Escribir tecla1,' Es una consonante, esta en ',mayus;
+				FinSi
+			SiNo
+				Si (tecla1=='A' O tecla1=='E' O tecla1=='I' O tecla1=='O' O tecla1=='U') Entonces
+					Escribir tecla1,' Es una vocal, esta en ',mayus;
+				SiNo
+					Escribir tecla1,' Es una vocal, esta en ',minus;
+				FinSi
+			FinSi
+		SiNo
+			Si tecla1<>'*' Entonces
+				Escribir tecla_invalida;
+			FinSi
+		FinSi
+		Escribir '';
+		Escribir 'PRESIONA CUALQUIER LETRA: ';
+		Leer tecla1;
+	FinMientras
+	Escribir '';
+	Escribir 'Adios';
+FinAlgoritmo

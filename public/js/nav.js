@@ -3,6 +3,8 @@ window.onload = function () {
     var navb = document.getElementById("navb");
     var main = document.querySelector(".main");
     var li = document.getElementsByTagName("li");
+    
+    var log_reg = document.getElementById("log_reg");
 
     var a_div = main.getElementsByClassName("element_a");
 
@@ -37,26 +39,34 @@ window.onload = function () {
 
     function show_menu(){
         headernav.style.height = "100vh";
-        headernav.style.zIndex = "1";
-        headernav.style.backgroundColor = "red";
+        headernav.style.position = "fixed";
+        headernav.style.width = "100%";
+
         navb.style.height = "100vh";
         main.style.height = "100vh";
+        nav_ul_li.style.height = "100vh";
+        
+        if (typeof log_reg != "undefined"){
+
+        }
+        else{
+            log_reg.style.flexDirection = "column";
+        }
         main.style.flexDirection = "column";
         img.style.display = "flex";
         img.style.marginBottom = "1rem";
         img.style.justifyContent = "center";
         nav_ul.style.flexDirection = "column";
         nav_ul_li.style.display = "flex";
-        nav_ul_li.style.height = "100vh";
         nav_ul_li.style.justifyContent = "center";
+        nav_ul_li.style.alignContent = "center";
+
         ul.style.display = "flex";
 
         ul.style.flexDirection = "column";
         ul1.style.flexDirection = "column";
         ul1.style.textAlign = "center";
         ul2.style.flexDirection = "column";
-        ul2.style.width = "100%";
-        ul2.style.height = "100vh";
 
         btnadd.style.display ="none";
         btnremove.style.display ="flex";
@@ -70,29 +80,34 @@ window.onload = function () {
     }
 
     function remove_menu(){
-        headernav.style.height = "10vh";
-        navb.style.height = "10vh";
+        headernav.style.height = "fit-content";
+        headernav.style.position = "sticky";
+        navb.style.height = "fit-content";
         main.style.flexDirection = "row";
-        main.style.height = "10vh";
-        img.style.marginBottom = "0rem";
-        img.style.justifyContent = "flex-end";
+        main.style.height = "fit-content";
         nav_ul.style.flexDirection = "column";
         nav_ul_li.style.display = "none";
+        
+        if (typeof log_reg != "undefined"){
+
+        }
+        else{
+            log_reg.style.flexDirection = "row";
+        }
         nav_ul_li.style.justifyContent = "center";
 
-        ul.style.flexDirection = "column";
-        ul1.style.flexDirection = "column";
+        ul.style.flexDirection = "row";
+        ul1.style.flexDirection = "row";
         ul1.style.textAlign = "center";
         ul2.style.flexDirection = "row";
-        ul2.style.width = "100%";
-        ul2.style.height = "10vh";
+        
 
         btnadd.style.display ="flex";
         btnremove.style.display ="none";
         for (let i = 0; i < li.length; i++) {
             const li_i = li[i];
-            li_i.style.marginTop = "0rem";
-            li_i.style.marginBottom = "0rem";
+            li_i.style.marginTop = "0.5rem !important";
+            li_i.style.marginBottom = "0.5rem !important";
         }
     }
     function myFunction(x) {
@@ -100,24 +115,36 @@ window.onload = function () {
             btnadd.style.display ="flex";
             nav_ul_li.style.display = "none";
             ul.style.display = "none";
-
-
         } else {
-            headernav.style.height = "10vh";
-            navb.style.height = "10vh";
+            headernav.style.position = "sticky";
+
             main.style.flexDirection = "row";
-            main.style.height = "10vh";
             btnadd.style.display ="none";
             btnremove.style.display ="none";
             nav_ul_li.style.display = "block";
             ul.style.display = "flex";
+            headernav.style.height = "fit-content";
+            navb.style.height = "fit-content";
+            main.style.height = "fit-content";
+            nav_ul_li.style.height = "fit-content";
+            
+            if (typeof log_reg != "undefined"){}
+            else{
+                log_reg.style.flexDirection = "row";
+            }
+            
+            ul.style.justifyContent = "space-between";
 
             main.style.flexDirection = "row";
             nav_ul.style.flexDirection = "row";
             ul.style.flexDirection = "row";
             ul1.style.flexDirection = "row";
             ul2.style.flexDirection = "row";
-
+            for (let i = 0; i < li.length; i++) {
+                const li_i = li[i];
+                li_i.style.marginTop = "0.5rem !important";
+                li_i.style.marginBottom = "0.5rem !important";
+            }
 
         }
       }

@@ -41,31 +41,34 @@ class NoticesController extends Controller
         return view('gelato.noticias_gelato', ['notice' => $notice]);
     }
     public static function readOne($id)
-    {
+    {   
         $notice =  notices::find($id);
-        return view('Admin.edit_notices', ['notice' => $notice]);
+        
+        return $notice;
+
     }
 
     public function update(Request $request, $id){
         request()->validate([
-            'archivos' => 'required',
-            'titulo' => 'required|string',
-            'mensaje' => 'required|string',
+            'archivo' => 'required',
+            'titulo2' => 'required|string',
+            'mensaje2' => 'required|string',
         ]);
 
         $notice = notices::find($id);
-        $title = request('titulo');
+        $title = request('titulo2');
 
-        $img = $request->file('archivos');
+        $img = $request->file('archivo');
         $nombreImagen = Str::slug($title).".".$img->guessExtension();
 
         $ruta = public_path("img/notices/");
         copy($img->getRealPath(),$ruta.$nombreImagen);
         $notice->update([
             'archivos' => $nombreImagen,
-            'titulo' => request('titulo'),
-            'mensaje' => request('mensaje'),
+            'titulo' => request('titulo2'),
+            'mensaje' => request('mensaje2'),
         ]);
+        
         return redirect('home')->with('success','Noticia editada');
     }
 

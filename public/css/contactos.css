@@ -5,13 +5,13 @@
     max-width: 1120px;
     margin-left: auto;
     margin-right: auto;
-    height: 50vh;
+    height:calc(90vh-100px);
     overflow-wrap: break-word;
 
 }
 section{
     position: static !important;
-    transform: translateY(4.5rem);
+    transform: translateY(0.5rem);
     min-height: 580px;
     background-color:azure;
     padding-left: 1rem;
@@ -34,10 +34,10 @@ aside{
     max-height: 580px !important;
     box-shadow: 20px 20px 30px 0px black;
 
-    transform: translateY(4.5rem);
+    transform: translateY(0.5rem);
 }
 .in-flexs{
-    min-width: 470px;
+    min-width: 200px;
     flex: 1;
 }
     input{
@@ -98,241 +98,30 @@ aside{
 
     
     .article{
-            transform: translateX(2rem);
-        }
+        padding-left: 2rem;
+    }
 
     
-        @media screen and (max-width: 471px) {
-            section{
-                margin-top: 1rem !important;
-                padding-left: 1rem;
-                height: fit-content;
-                margin-left: 1.5rem;
-                margin-right: 2.5rem;
-                z-index: -1;
-    
-            }
-            aside{
-                background-color:beige;
-                margin-top: 1rem;
-                display: flex;
-                justify-content: center;
-                margin-left: 1.5rem;
-                margin-right: 2.5rem;
-    
-            }
-            .article{
-                transform: translateX(2rem);
-            }
-            input[type= text]{
-                width: 100%;
-                height: 2.5rem;
-                border-radius: 10px;
-                border: none;
-                max-width: 90%;
-            }
-            #mensaje{
-                height: 30vh !important;
-            }
-    
-            
-        }
-    @media screen and (max-width: 971px) {
+
+    @media screen and (min-height: 1989px) {
         section{
-            margin-top: 1rem !important;
-            padding-left: 1rem;
-            height: fit-content;
-            margin-left: 1.5rem;
-            margin-right: 1.5rem;
+            transform: translateY(0.5rem);
             z-index: -1;
 
-        }
-        aside{
-            background-color:beige;
-            margin-top: 1rem;
-            display: flex;
-            justify-content: center;
-            margin-left: 1.5rem;
-            margin-right: 1.5rem;
-
-        }
-        .article{
-            transform: translateX(2rem);
-        }
-        input[type= text]{
-            width: 100%;
-            height: 2.5rem;
-            border-radius: 10px;
-            border: none;
-            max-width: 90%;
-        }
-        #mensaje{
-            height: 30vh !important;
-        }
-
-        
-    }
-    @media screen and (min-width: 975px) {
-        section{
-            height: 518.95px !important;
+            background-color:azure;
+            height: 70vh !important;
             max-height: 600px !important;
 
         }
-
-    }
-    @media screen and (max-width: 975px) {
-        .modal_success{
-            transform: translate(0%, -1000%) !important;
-            z-index: 1;
-
-        }
-
-    }
-    @media screen and (min-height: 736px) {
-        section{
-            transform: translateY(5.5rem);
-
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh;
-            max-height: 550px;
-            z-index: -1;
-
-        }
-            aside{
-            width: 100% !important;
-            background-color:beige;
-            padding-left: 1rem;
-            max-height: 550px;
-
-            transform: translateY(5.5rem);
-        }
-    }
-
-
-
-    @media screen and (min-height: 828px) {
-        section{
-            transform: translateY(6rem);
-
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh;
-            max-height: 550px;
-            z-index: -1;
-
-        }
-            aside{
-            width: 100% !important;
-            background-color:beige;
-            padding-left: 1rem;
-            max-height: 550px;
-
-            transform: translateY(6rem);
-        }
-    }
-
-
-    @media screen and (min-height: 970px) {
-        #texto{
-            background-color: white;
-            width: 90%;
-            border-radius: 10px;
-            border: none;
-            height: fit-content;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            font-size: 12px !important;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            color: black;
-            cursor: text;
-    
-        }
-    }
-
-
-
-
-    @media screen and (min-height: 994px) {
-        section{
-            transform: translateY(7rem);
-
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh;
-            max-height: 550px;
-            z-index: -1;
-
-        }
         aside{
             width: 100% !important;
             background-color:beige;
-            padding-left: 1rem;
-            max-height: 550px;
+            max-height: 600px !important;
 
-            transform: translateY(7rem);
+            transform: translateY(0.5rem);
         }
     }
-    @media screen and (min-height: 1326px) {
-        section{
-            transform: translateY(9rem);
-            z-index: -1;
 
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh;
-            max-height: 550px;
-
-        }
-        aside{
-            width: 100% !important;
-            background-color:beige;
-            padding-left: 1rem;
-            max-height: 550px;
-
-            transform: translateY(9rem);
-        }
-    }
-    @media screen and (min-height: 1989px) {
-        section{
-            transform: translateY(13rem);
-            z-index: -1;
-
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh !important;
-            max-height: 700px !important;
-
-        }
-        aside{
-            width: 100% !important;
-            background-color:beige;
-            padding-left: 1rem;
-            max-height: 700px !important;
-
-            transform: translateY(13rem);
-        }
-    }
-    @media screen and (min-height: 2652px) {
-        section{
-            transform: translateY(17rem);
-            z-index: -1;
-
-            background-color:azure;
-            padding-left: 1rem;
-            height: 70vh;
-            max-height: 700px;
-
-        }
-        aside{
-            width: 100% !important;
-            background-color:beige;
-            padding-left: 1rem;
-            max-height: 600px;
-            transform: translateY(17rem);
-        }
-    }
 
     .div-inputs{
         width: 100% !important;

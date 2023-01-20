@@ -1,0 +1,23 @@
+@media screen and (max-width: 455px) {
+
+    .w-75{
+        width: 95% !important;
+        transition: all 0.7s;
+    }
+    
+}
+.w-75{
+    transition: all 0.7s;
+
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background: #6c757d;
+
+    
+}
+::-webkit-scrollbar-track {
+    background: #fff;
+    margin-top: 3.28rem;
+}

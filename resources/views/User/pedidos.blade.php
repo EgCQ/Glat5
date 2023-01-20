@@ -3,6 +3,8 @@
 @section('title', 'Pedidos')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('css/pedidos.css') }}">
+
 @endsection
 
 @section('js')   
@@ -13,9 +15,8 @@
 @endsection
 
 @section('content')
-<div class="w-100 h-100" id="pedidos">
-    <div class="d-flex w-100" style="height: 100vh; justify-content: flex-end; flex-direction: column; align-items: center; flex-wrap: no-wrap;">
-        <div class="w-75 bg-white d-flex p-2" style="">
+<main class="w-100 d-flex" id="pedidos" style="height:calc(100vh-100px) !important; justify-content: center; flex-wrap: wrap;">
+        <div class="w-75 d-flex p-2" style="">
             <a href="{{ route('home') }}" class="btn btn-success d-flex" style="width: 50px; height: 50px; align-items: center;" tooltip="Volver">
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
@@ -24,8 +25,8 @@
             </h3>
         
         </div>
-        <aside class="w-75 bg-white" style="height: 75%; min-height: 75vh; overflow-y: scroll;">
-            <table class="w-100 table" style="height: 100%;">
+        <aside class="w-75 bg-white asides" style="max-height: 75vh;  overflow-y: scroll;">
+            <table class="w-100 table" style="">
                 <thead class="bg-secondary text-center" style="position:sticky; top: 0px;">
                     <tr>
                         <th scope="col"
@@ -45,7 +46,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="" style="">
                     <tr v-for="productos in carrito">
                         <td class="">
                             <div class="text-center">
@@ -85,8 +86,7 @@
                 </tbody>
             </table>
         </aside>
-    </div>
-</div>
+</main>
 <script>
         
     var app = new Vue({

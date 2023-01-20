@@ -13,12 +13,12 @@
         <nav id="navb">
             <div class="main">
                 <div id="nav-ul">
-                        <a href="#" id="btn-add">
-                            <i class="fas fa-bars"></i>
-                        </a>
-                        <a href="#" id="btn-remove">
-                            <i class="fa-solid fas fa-xmark"></i>
-                        </a>
+                    <a href="#" id="btn-add">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                    <a href="#" id="btn-remove">
+                        <i class="fa-solid fas fa-xmark"></i>
+                    </a>
                     <div id="nav-ul-li">
                         <ul id="ul">
                             <div id="ul1" style="display: flex; align-items: center;">
@@ -28,13 +28,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('contactos.contacto') }}"  class="element_a" tooltip="Contactanos" flow="down">
-                                        <i class="fa-solid fa-envelope-open"></i>                                    
+                                    <a href="{{ route('contactos.contacto') }}"  class="" tooltip="Contactanos" flow="down">
+                                        <i class="fa-solid fa-envelope-open element_a"></i>                                    
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('noticias_gelato') }}" class="element_a" tooltip="Noticias" flow="down">
-                                        <i class="fa-solid fa-message fa-message-quote"></i>
+                                    <a href="{{ route('noticias_gelato') }}" class="" tooltip="Noticias" flow="down">
+                                        <i class="fa-solid fa-message fa-message-quote element_a"></i>
                                     </a>
                                 </li>
                                 
@@ -46,7 +46,7 @@
                                             <a href="{{ url('/home') }}" class="element_a" tooltip="Entrar al Dashboard" flow="down">DASHBOARD</a>
                                         </li>
                                     @else
-                                    <div class="d-flex">
+                                    <div class="d-flex" id="log_reg">
                                         <li  id="login">
                                             <a href="{{ route('login') }}"  class="element_a" tooltip="Inicia sesion" flow="down">
                                                 <i class="fa-sharp fa-solid fa-door-open"></i>

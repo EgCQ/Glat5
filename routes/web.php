@@ -52,7 +52,6 @@ Route::get('/error_page', function(){
 })->name('error_page');
 
 Route::get('/home', function (Request $request) {
-    $notice = Notices::all();
     $idRolUser = users_roles::where('id_user', Auth::id())->get();
 /*    $productos = DB::table('productos')
                 ->select('id', 'nombre', 'tipo_producto', 'precio', 'img')
@@ -62,7 +61,7 @@ Route::get('/home', function (Request $request) {
                 ->paginate(10);*/
     //return $idRolUser[0]->id_rol;
     if (($idRolUser[0]->id_rol) == 1) {
-        return view('Admin.dashboard', ['notice' => $notice]);
+        return view('Admin.dashboard');
     } else {
         return view('User.dashboard');
     }
@@ -73,12 +72,18 @@ Route::get('/home', function (Request $request) {
 Route::get('/contactos', [GelatoController::class, 'contacto'])->name('contactos.contacto');
 Route::post('/contactos', [GelatoController::class, 'mail_sended'])->name('contactos.mail_sended');
 
+Route::get('/view_all_notices', function (){
+    $notices = Notices::all();
+    return $notices;
+})
+->middleware('auth')
+->name('view_all_notices');
 
 Route::post('/create_notices', [NoticesController::class, 'create'])
 ->middleware('auth')
 ->name('create_notices');
 
-Route::get('/view_notice/{id}', [NoticesController::class, 'readOne'])
+Route::get('/home/{id}', [NoticesController::class, 'readOne'])
 ->middleware('auth')
 ->name('view_notice');
 
@@ -95,16 +100,22 @@ Route::post('/notice_deleted/{id}', [NoticesController::class, 'delete'] )
 Route::get('/noticias_gelato', [GelatoController::class, 'noticias'])->name('noticias_gelato');
 
 Route::get('/mi_perfil/{id}', function($id){
-    $user = User::where('id', $id)->get();
-    $persona = Personas::where('id_user', $id)->get(['slug']);
     $persona2 = Personas::where('id_user', $id)->get();
     $persona2 = Personas::find(1);
+
     $user2 = User::find($id);
-    if ($user2) {
-        return view('Admin.perfil', ['persona' => $persona2]);
+    $userRol = users_roles::where('id_user', $id)->get();
+    $userRol =  ($userRol[0]->id_rol);
+    if (!$user2) {
+        return redirect('error_page');
     }
     else{
-        return redirect('error_page');
+        if ($userRol == 1) {
+            return view('Admin.perfil', ['persona' => $persona2]);
+        } else {
+            return view('User.perfil', ['persona' => $persona2]);
+        }
+
     }
 
 })->middleware('auth')->name('perfil.show');

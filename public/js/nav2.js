@@ -1,8 +1,14 @@
 window.onload = function () {
     var headernav = document.getElementById("headernav");
+    var dropmenu3 = document.querySelector(".dropmenu3");
+    var dropmenu4 = document.querySelector(".dropmenu4");
+    var dropmenu5 = document.querySelector(".dropmenu5");
+
     var navb = document.getElementById("navb");
     var main = document.querySelector(".main");
     var li = document.getElementsByTagName("li");
+    
+    var log_reg = document.getElementById("log_reg");
 
     var a_div = main.getElementsByClassName("element_a");
 
@@ -24,12 +30,11 @@ window.onload = function () {
     var img = document.getElementById("img");
     var nav_ul = document.getElementById("nav-ul");
     var nav_ul_li = document.getElementById("nav-ul-li");
-    var nav_ul_li2 = document.getElementById("nav-ul-li2");
+
 
     var ul = document.getElementById("ul");
     var ul1 = document.getElementById("ul1");
-    var ul2 = document.querySelector("#ul2");
-    var ul3 = document.querySelector("#ul3");
+    var ul2 = document.getElementById("ul2");
     var btnadd = document.getElementById("btn-add");
     var btnremove = document.getElementById("btn-remove");
 
@@ -37,24 +42,41 @@ window.onload = function () {
     btnremove.addEventListener("click", remove_menu);
 
     function show_menu(){
-        headernav.style.height = "100vh !important";
-        navb.style.height = "100vh !important";
-        main.style.height = "100vh !important";
+        headernav.style.height = "100vh";
+        headernav.style.position = "fixed";
+        
+        dropmenu3.style.alignItems = "center";
+
+        dropmenu4.style.marginRight = "0rem";
+        dropmenu5.style.marginRight = "0rem";
+
+        headernav.style.width = "100%";
+        navb.style.height = "100vh";
+        main.style.height = "100vh";
+        nav_ul_li.style.height = "100vh";
+        
+        if (typeof log_reg != "undefined"){
+
+        }
+        else{
+            log_reg.style.flexDirection = "column";
+        }
         main.style.flexDirection = "column";
         img.style.display = "flex";
         img.style.marginBottom = "1rem";
         img.style.justifyContent = "center";
         nav_ul.style.flexDirection = "column";
+        nav_ul_li.style.display = "flex";
+        nav_ul_li.style.justifyContent = "center";
+        nav_ul_li.style.alignContent = "center";
 
-        nav_ul_li2.style.display = "flex";
-        nav_ul_li2.style.justifyContent = "center";
+        ul.style.display = "flex";
+
         ul.style.flexDirection = "column";
         ul1.style.flexDirection = "column";
         ul1.style.textAlign = "center";
         ul2.style.flexDirection = "column";
-        ul2.style.width = "100%";
-        ul3.style.flexDirection = "column";
-        ul3.style.width = "100%";
+
         btnadd.style.display ="none";
         btnremove.style.display ="flex";
         btnremove.style.justifyContent ="center";
@@ -67,58 +89,88 @@ window.onload = function () {
     }
 
     function remove_menu(){
-        headernav.style.height = "10vh";
-        navb.style.height = "10vh";
+        headernav.style.height = "fit-content";
+        headernav.style.position = "sticky";
+
+        dropmenu3.style.alignItems = "flex-end";
+
+        dropmenu4.style.marginRight = "2rem";
+        dropmenu5.style.marginRight = "2rem";
+
+        navb.style.height = "fit-content";
         main.style.flexDirection = "row";
-        main.style.height = "10vh";
-        img.style.marginBottom = "0rem";
+        main.style.height = "fit-content";
         img.style.justifyContent = "flex-end";
         nav_ul.style.flexDirection = "column";
+        nav_ul_li.style.display = "none";
+        
+        if (typeof log_reg != "undefined"){
 
-        nav_ul_li2.style.display = "none";
-        nav_ul_li2.style.justifyContent = "center";
-        ul.style.flexDirection = "column";
-        ul1.style.flexDirection = "column";
+        }
+        else{
+            log_reg.style.flexDirection = "row";
+        }
+        nav_ul_li.style.justifyContent = "center";
+
+        ul.style.flexDirection = "row";
+        ul1.style.flexDirection = "row";
         ul1.style.textAlign = "center";
-        ul2.style.flexDirection = "column";
-        ul2.style.width = "100%";
-        ul3.style.flexDirection = "column";
-        ul3.style.width = "100%";
+        ul2.style.flexDirection = "row";
+        
+
         btnadd.style.display ="flex";
         btnremove.style.display ="none";
         for (let i = 0; i < li.length; i++) {
             const li_i = li[i];
-            li_i.style.marginTop = "0rem";
-            li_i.style.marginBottom = "0rem";
+            li_i.style.marginTop = "0rem !important";
+            li_i.style.marginBottom = "0rem !important";
         }
     }
     function myFunction(x) {
         if (x.matches) { // If media query matches
             btnadd.style.display ="flex";
-
-            nav_ul_li2.style.display = "none";
-
+            nav_ul_li.style.display = "none";
+            ul.style.display = "none";
         } else {
-            headernav.style.height = "10vh";
-            navb.style.height = "10vh";
+            headernav.style.position = "sticky";
+
+            dropmenu3.style.alignItems = "flex-end";
+
+            dropmenu4.style.marginRight = "2rem";
+            dropmenu5.style.marginRight = "2rem";
+            
             main.style.flexDirection = "row";
-            main.style.height = "10vh";
             btnadd.style.display ="none";
             btnremove.style.display ="none";
-            nav_ul_li2.style.display = "block";
+            nav_ul_li.style.display = "block";
+            ul.style.display = "flex";
+            headernav.style.height = "fit-content";
+            navb.style.height = "fit-content";
+            main.style.height = "fit-content";
+            nav_ul_li.style.height = "fit-content";
+            
+            if (typeof log_reg != "undefined"){}
+            else{
+                log_reg.style.flexDirection = "row";
+            }
+            
+            ul.style.justifyContent = "space-between";
+
             main.style.flexDirection = "row";
             nav_ul.style.flexDirection = "row";
             ul.style.flexDirection = "row";
-            
             ul1.style.flexDirection = "row";
             ul2.style.flexDirection = "row";
-            ul3.style.flexDirection = "row";
-
+            for (let i = 0; i < li.length; i++) {
+                const li_i = li[i];
+                li_i.style.marginTop = "0rem !important";
+                li_i.style.marginBottom = "0rem !important";
+            }
 
         }
       }
       
-      var x = window.matchMedia("(max-width: 600px)")
+      var x = window.matchMedia("(max-width: 795px)")
       myFunction(x) // Call listener function at run time
       x.addEventListener("change",myFunction) // Attach listener function on state changes
 }

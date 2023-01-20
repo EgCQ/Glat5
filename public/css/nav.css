@@ -4,7 +4,7 @@ body {
     padding: 0 !important;
     margin: 0 !important;
     background-image:linear-gradient(to right, rgb(1, 2, 58), rgb(105, 9, 134), rgb(111, 3, 161), rgb(91, 14, 114), rgb(26, 0, 37)); 
-
+    
 }
 
 ::-webkit-scrollbar {
@@ -58,16 +58,12 @@ body {
 }
 
 .header{
-    z-index: 1;
-    position: fixed !important;
-    width: 100% !important;
-    margin-left: auto;
-    height: 10vh !important;
-    min-height: 60px;
-    max-height: 150px;
-    background-color: gray;
+    z-index: 2 !important;
+    height: fit-content;
+    position: sticky;
+    top: 0 !important;
     background-image:linear-gradient(to right, red, rgb(248, 36, 8), rgb(255, 153, 0), yellow);
-    transition: height 0.5s; 
+    transition: height 0.5s !important;
 }
 .navbar-toggler{
     display: none;
@@ -76,7 +72,7 @@ body {
 }
 nav{
     max-width: 1350px;
-    height: 100% !important;
+    height: fit-content !important;
     margin-left: auto;
     margin-right: auto;
     transition: height 0.5s; 
@@ -84,14 +80,13 @@ nav{
 }
 nav .main{
     width: 100%;
-    height: 100% !important;
+    height: fit-content !important;
     display: flex;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
     justify-content: center;
-    transition: height 0.5s; 
-
+    transition: height 0.5s;
 }
 
 
@@ -136,7 +131,6 @@ nav .main #nav-ul #nav-ul-li ul{
     align-items: center;
     justify-content: space-between;
     padding-right: 2rem;
-    height: 100% !important;
     margin: 0 !important;
 }
 
@@ -161,6 +155,8 @@ nav .main #nav-ul #nav-ul-li2 ul li{
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 nav .main #nav-ul #nav-ul-li ul li{
     padding-left: 1rem;
@@ -171,6 +167,8 @@ nav .main #nav-ul #nav-ul-li ul li{
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 a{
     text-decoration: none;
@@ -221,16 +219,28 @@ a:hover{
 /* On screens that are 600px wide or less, the background color is olive */
 @media screen and (max-width: 795px) {
     #btn-add{
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
+        width: fit-content !important;
+        margin-left: auto;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        
+        margin-right: auto;
         color: black;
         font-size: 35px;
     }
     
     #btn-remove{
         display: none;
-
+        width: fit-content !important;
+        margin-left: auto;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        
+        margin-right: auto;
+        color: black;
+        font-size: 35px;
     }
     #ul{
         display: none;
@@ -291,34 +301,15 @@ a:hover{
     
 }
 @media screen and (max-height: 622px) {
-    .header{
-    
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    }
 }
 
 @media screen and (max-width: 990px) {
-    .header{
-        z-index: 1;
-    
-        position: fixed;
-        width: 100%;
-        margin-left: auto;
-        height: 10vh !important;
-        min-height: 80px;
-        max-height: 150px;
-        background-color: gray;
-        background-image:linear-gradient(to right, red, rgb(248, 36, 8), rgb(255, 153, 0), yellow);
-        transition: height 0.5s; 
-    }
-
 }
 
 
 .a_actived{
-    background: rgba(180, 180, 180, .3);
     border-radius: 15%;
+    color: white;
     height: 80% !important; 
     width: 100% !important;
 }
@@ -380,9 +371,16 @@ a:hover{
     color: white !important;
     font-weight: bold;
 }
+.dropdown-menu.dp2{
+    transform: translate3d(-420px, 36px, 20px) !important;
+    --bs-dropdown-min-width: 30rem !important;
+}
+.dropdown-menu a{
+    border-radius: 0% !important;
+}
 
 .notify:hover{
-    background-color:#888 !important;
+    background-color:rgb(99, 99, 99) !important;
 }
 button:hover{
     color: white;

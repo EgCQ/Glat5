@@ -28,6 +28,7 @@ class NoticesController extends Controller
                 'titulo' => request('titulo'),
                 'mensaje' => request('mensaje'),
             ]);
+            
         return redirect('home')->with('success','Noticia publicada');
 
     }

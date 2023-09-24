@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarritoUsuarioController;
+use App\Http\Controllers\CommenNoticesController;
 use App\Http\Controllers\GelatoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -18,7 +19,11 @@ use App\Models\roles;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\comment_notices;
+
 use Illuminate\Support\Facades\DB;
+use Vtiful\Kernel\Excel;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +51,72 @@ Route::post('/createRole', [RolesController::class, 'create'])->middleware(['aut
 Route::get('/gelato', [GelatoController::class, 'index'])->name('gelato');
 /*
 */
+Route::post('/form_post',function(){
+    request()->validate([
+        'hola_mundo.*' => 'required|integer|gte:5',
+    ]);
+    $valuex = request("hola mundo");
+    for($i = 0; $i < count($valuex); $i++) {
+        $db = $valuex[$i];
+        return $db;
+    }
+})->name("form_post");
+
+Route::get('/get_records', function(){
+    $user = Auth::id();
+    $form = DB::select("select * from table_other_form where id_user = $user");
+    return $form;
+});
+Route::get("/view_forms", function(){
+    return view("User.another_form");
+})->name("view_forms");
+Route::post("/submit_forms", function(){
+    request()->validate([
+        "archivos" => "required",
+    ]);
+    $tipo = $_FILES['archivos']['type'];
+    $tamanio = $_FILES['archivos']['size'];
+    $archivotmp = $_FILES['archivos']['tmp_name'];
+    $lineas = file($archivotmp);
+    $i = 0;
+    $form = DB::select("select * from table_other_form");
+    $user = Auth::id();
+    foreach($lineas as $linea){
+        if($i != 0){
+            $datos = explode(";", $linea);
+            $nombre         = !empty($datos[0]) ? ($datos[0]) : '';
+            $descripcion    = !empty($datos[1]) ? ($datos[1]) : '';
+            $db = [
+                "nombre" => $nombre,
+                "descripcion" => $descripcion,
+                "id_user" => $user
+            ];
+            DB::table("table_other_form")->insert($db);
+        } else {
+            DB::table("table_other_form")->where('id_user', $user)->delete();
+            $datos = explode(";", $linea);
+            $nombre         = !empty($datos[0]) ? ($datos[0]) : '';
+            $descripcion    = !empty($datos[1]) ? ($datos[1]) : '';
+            $db = [
+                "nombre" => $nombre,
+                "descripcion" => $descripcion,
+                "id_user" => $user
+            ];
+            DB::table("table_other_form")->where("nombre", $nombre)->update($db);
+        }
+        $i++;
+    }
+    return redirect()->route("view_forms");
+})->name("file_submit");
+
+Route::post("/submit_forms2", function(){
+    request()->validate([
+        "archivos2" => "required",
+    ]);
+    $archivo = request("archivos2");
+
+
+})->name("file_submit2");
 
 Route::get('/error_page', function(){
     return view ('components.errors.error_page');
@@ -79,6 +150,22 @@ Route::get('/view_all_notices', function (){
 ->middleware('auth')
 ->name('view_all_notices');
 
+Route::get('/view_all_notices_guest', function (){
+    $notices = comment_notices::all();
+
+    return $notices;
+})
+->name('view_all_notices_guest');
+
+Route::get('/view_likes/{id}', function ($id){
+    $userId = Auth::id();
+    $data = comment_notices::where('id_user', $userId)
+    ->where('id_notice', $id)
+    ->first();
+return $data;
+})
+->name('view_likes');
+
 Route::post('/create_notices', [NoticesController::class, 'create'])
 ->middleware('auth')
 ->name('create_notices');
@@ -96,6 +183,33 @@ Route::post('/notice_deleted/{id}', [NoticesController::class, 'delete'] )
 ->middleware('auth')
 ->name('notice_deleted');
 
+// Route::post('/comment_create/{id}', [CommenNoticesController::class, 'postCommentNotice'] )
+// ->middleware('auth')
+// ->name('comment_create');
+
+// Route::post('/comment_create/{id}', [CommenNoticesController::class, 'postCommentNotice'] )
+// ->middleware('auth')
+// ->name('comment_create');
+
+Route::get('/fetch-notices', [CommenNoticesController::class, 'getCommentNotice'] )
+->name('fetch_notices');
+
+Route::post('/comment_create', [CommenNoticesController::class, 'commentNotice'] )
+->middleware('auth')
+->name('comment_create');
+
+Route::post('/comment_edit', [CommenNoticesController::class, 'editCommentNotice'] )
+->middleware('auth')
+->name('comment_edit');
+
+
+Route::post('/favorite/{id}', [CommenNoticesController::class, 'postFavorite'] )
+->middleware('auth')
+->name('favorite');
+
+Route::post('/remove_favorite/{id}', [CommenNoticesController::class, 'removeFavorite'] )
+->middleware('auth')
+->name('remove_favorite');
 
 Route::get('/noticias_gelato', [GelatoController::class, 'noticias'])->name('noticias_gelato');
 
@@ -158,5 +272,18 @@ Route::post('/newReserva', [ReservaUsuarioController::class, 'newReserva'])->mid
 
 
 Route::get('/gelato/{id}', [GelatoController::class, 'show'])->name('getGelato');
+
+
+Route::get('/hola_mundo', function(){
+    $notice = DB::table('notices')
+    ->leftJoin('comment_notices', 'comment_notices.id_notice', '=', 'notices.id')
+    ->select('notices.id','comment_notices.message as message','comment_notices.favorite as favorite',
+    'comment_notices.id_users as user','comment_notices.id_notice as notice','notices.titulo as titulo',
+    'notices.mensaje as mensaje', 'notices.archivos as archivos')
+    ->groupBy('comment_notices.id')
+    ->get();
+
+    return $notice;
+})->name('hola_mundo');
 
 require __DIR__ . '/auth.php';

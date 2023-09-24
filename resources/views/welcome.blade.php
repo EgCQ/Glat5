@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="img/icon.jpg" sizes="16x16" type="image/jpg">
+        <link rel="stylesheet" href="{{asset('css/welcome.css')}}">
         <title>Bienvenido</title> 
         <style>
           .carousel-item::before{
@@ -72,8 +73,24 @@
             <i class="fa-solid fa-chevron-right"></i>
           </button>
         </div>
-        
+        <div id="table_extern" style="width: 40%; height:50vh; background-color:rgba(255, 0, 0, 0.363); display:flex; justify-content:center; align-items:center;">
+          <div id="table">
+            <div id="table2">
+            </div>
+            <button id="btn_start"  class="btn btn-primary" type="button">Presiona aqui</button>
+          </div>
+          <div class="modal_window d-none">
+            <div>
+              <h3>¿Empezar juego?</h3>
+            </div>
+            <div class="d-flex" style="justify-content: space-evenly;">
+                <button class="btn btn-success" id="yes">Si</button>
+                <button class="btn btn-danger" id="no">No</button>
+            </div>
+          </div>
+        </div>
       </main>
+      <script src="js/welcome.js"></script>
 
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

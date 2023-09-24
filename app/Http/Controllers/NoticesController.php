@@ -72,6 +72,15 @@ class NoticesController extends Controller
         
         return redirect('home')->with('success','Noticia editada');
     }
+    
+    public function liked($id){
+
+        $producto = notices::find($id);
+        $producto->update([
+            'reacciones' => json_encode(request('mensaje2')),
+        ]);
+        return redirect('home')->with('success','Noticia eliminada');
+    }
 
     public function delete($id){
 

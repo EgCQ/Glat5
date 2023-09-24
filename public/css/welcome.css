@@ -112,3 +112,83 @@ body{
     border-radius: 50%;
     border: 1px solid transparent !important;
 }
+#table{
+    width: 95%;
+    height:95%;
+    background-color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#btn_start{
+    width: 50%;
+    height: 15%;
+}
+
+.showed{
+    animation: show 0.3s;
+
+}
+.hiden{
+    animation: hide 0.3s;
+
+}
+.hiden2{
+    animation: hide2 0.3s;
+
+}
+.modal_window{
+    background-color: #ffff;
+    z-index: 1;
+    border-radius: 25px;
+    padding: 1rem;
+    padding-top: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@keyframes show {
+    0%{
+
+        transform: translate(-50%, -50%) scale(0.1);
+        top: 50%;
+        left: 50%;
+
+    }
+
+    100%{
+        transform: translate(-50%, -50%) scale(1);
+        top: 50%;
+        left: 50%;
+
+    }
+}
+@keyframes hide2 {
+    0%{
+        scale: 1;
+    }
+
+    100%{
+        scale: 0.1;
+    }
+}
+@keyframes hide {
+    0%{
+        transform: translate(-50%, -50%) scale(1);
+        top: 50%;
+        left: 50%;
+        
+    }
+
+    100%{
+        transform: translate(-50%, -50%) scale(0.1);
+        top: 50%;
+        left: 50%;
+    }
+}
+
+#yes, #no{
+    width: 150%;
+    margin: 0.5rem;
+}

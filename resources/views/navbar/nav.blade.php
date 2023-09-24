@@ -2,8 +2,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -31,7 +29,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('contactos.contacto') }}"  class="" tooltip="Contactanos" flow="down">
-                                        <i class="fa-solid fa-envelope-open element_a"></i>                                    
+                                        <i class="fa-solid fa-envelope-open element_a"></i>
                                     </a>
                                 </li>
                                 <li>
@@ -39,13 +37,13 @@
                                         <i class="fa-solid fa-message fa-message-quote element_a"></i>
                                     </a>
                                 </li>
-                                
+
                             </div>
                             <div id="ul2">
                                 @if (Route::has('login'))
                                     @auth
                                         <li id="dashboard">
-                                            <a href="{{ url('/home') }}" class="element_a" tooltip="Entrar al Dashboard" flow="down">DASHBOARD</a>
+                                            <a href="{{ url('/home') }}" class="element_a" tooltip="Entrar al Dashboard" flow="down">{{Auth::id()}} DASHBOARD</a>
                                         </li>
                                     @else
                                     <div class="d-flex" id="log_reg">
@@ -54,7 +52,7 @@
                                                 <i class="fa-sharp fa-solid fa-door-open"></i>
                                             </a>
                                         </li>
-    
+
                                         @if (Route::has('register.index'))
                                             <li  id="register">
                                                 <a href="{{ route('register.index') }}"  class="element_a" tooltip="Registrate" flow="down">
@@ -63,11 +61,11 @@
                                             </li>
                                         @endif
                                     </div>
-                                        
+
                                     @endauth
                                 @endif
                             </div>
-                            
+
                         </ul>
                     </div>
                 </div>

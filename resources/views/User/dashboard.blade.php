@@ -47,7 +47,7 @@ border-bottom-right-radius: 15px;
 @endsection
 
 
-@section('js')   
+@section('js')
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <script src="js/drag_drop.js"></script>
 @endsection
@@ -66,7 +66,7 @@ border-bottom-right-radius: 15px;
                     <form action="{{ route('home') }}" class=" w-75" method="GET">
                         @csrf
                         <div class="d-flex" style="flex-wrap: wrap">
-                            
+
                             <div class="my-2" style="width: 90%;">
                                 <input type="text" name="search" id="search" class="form-control w-100 mx-4" style="" placeholder="Buscar">
                             </div>
@@ -96,7 +96,7 @@ border-bottom-right-radius: 15px;
                                 </div>
                                 <div>
                                     <h6 class="my-2 mx-4" id="precio">
-                                        
+
                                         <b>Precio: </b>$@{{ productos.precio }}
                                     </h6>
                                 </div>
@@ -115,13 +115,29 @@ border-bottom-right-radius: 15px;
                             </div>
 
                         </div>
-                        
+
                     </div>
-                        
+
                 </article>
-                
+                <form action="{{route('form_post')}}" method="post">
+                @csrf
+                    <button class="btn btn-primary" type="button" id="btn_add_more">Agrega</button>
+
+                    <div id="div_one">
+
+                    <input type="text" class="form-control @error('hola_mundo.0') is-invalid @enderror" name="hola_mundo[]" value="{{old('hola_mundo.0')}}">
+                    @error('hola_mundo.0')
+                        <h5>{{$message}}</h5>
+                    @enderror
+                    </div>
+                    {{-- <script>
+
+                    </script> --}}
+
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                </form>
             </section>
-            
+
             <aside class="bg-secondary" style="max-height: 60vh !important; transform: translateY(0.5rem);" id="carrito">
                 <div class="text-white d-flex" style="width:100%; justify-content:space-between; height: fit-content; align-items:center">
                     <h2 class="my-2 mx-4"><b>Tu carrito</b></h2>
@@ -136,7 +152,7 @@ border-bottom-right-radius: 15px;
                                 <b>
                                     Producto
                                 </b>
-                                
+
                             </div>
                             <div>
                                 <b>
@@ -156,30 +172,30 @@ border-bottom-right-radius: 15px;
                     <div class="pb-2 pt-2 px-4" style="position:sticky; background-color:rgb(184, 184, 184) ; bottom: 0px; padding-left: 0.5rem;">
                         <span><b>Total</b></span>
                         <span class="">$ @{{ total }}</span>
-                    </div>                
+                    </div>
                 </div>
 <!--
 
                     <div class="bg-white d-flex" style="width:95%; height: fit-content; margin-left: auto; margin-right: auto; flex-wrap: wrap; justify-content: space-between;">
                         <p class="my-2 mx-4">Nombre...</p>
-                        <p class="my-2 mx-4">$ Precio</p>                    
+                        <p class="my-2 mx-4">$ Precio</p>
                     </div>
                     <div class="product w-100" style="background-color:burlywood; height: 100% !important;">
                         <h3>
                             No hay resultados
-    
+
                         </h3>
                     </div>-->
             </aside>
     </main>
 
     <script>
-        
+
         var app = new Vue({
             el: '#app',
             data: {
                 listProductos: [
-                    
+
                 ],
                 formData: {
                     productos: ''
@@ -254,7 +270,16 @@ border-bottom-right-radius: 15px;
             },
         });
 
+                        let i = 0, btn1 = document.getElementById('btn_add_more'), div1 = document.getElementById('div_one');
 
+                        btn1.addEventListener('click', function () {
+                            i++;
+                            let index1 = String(i);
+                            console.log(index1);
+                            $("#div_one").append("<input type='text' id='text"+index1+"' class='form-control @error('hola_mundo."+index1+"') is-invalid @enderror' name='hola_mundo[]' value='{{old('hola_mundo."+index1+"')}}'>");
+                            let texto1 = $("#text1");
+                            texto1.value = "{{old('hola_mundo.1')}}";
+                        });
     </script>
 
 

@@ -33,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="pt-3">
                     <div
                         class="fixed flex flex-wrap content-between w-64 overflow-hidden border-t-4 border-b-2 border-l-2 border-r-2 border-blue-500 rounded-lg h-96">

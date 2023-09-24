@@ -26,7 +26,7 @@
                 <div id="hola2">
                     <form action="" enctype="multipart/form-data" id="form" method="post">
                         @csrf
-                        
+
                         <div >
                             <div class="divinput">
                                 <h3 style="margin-right: 1rem;margin-left: 1rem; margin-top:0.5rem">
@@ -47,34 +47,34 @@
                                 </div>
 
                             </div>
-                            
+
                             <div class="d-flex">
                                     <h5 style="margin-right: 1rem; margin-left: 1rem; margin-top:0.5rem">
                                         <i class="fa-solid fa-folder-open"></i>
                                     </h5>
                                 <div class="custom-file" style="margin-right: 1rem">
-    
+
                                     <input type="file" class="form-control" id="uploadImage1" name="archivo" onchange="previewImage2(1);"/>
                                     <a href="" target="__blank" class="s_file" style="margin-left: 0.5rem; margin-right:0.5rem; width: 20% !important;">
                                         <img v-bind:src="'/img/notices/' + formData.archivos" id="uploadPreview1" width="100" height="100" alt="">
                                     </a>
                                 </div>
-    
-    
+
+
                             </div>
-    
+
                             <div class="buttons">
                                 <button type="submit" class="btn btn-success btn_c" style="height: fit-content;" id="pub">Editar noticia</button>
                                 <button type="reset" class="btn btn-danger btn_c" style="height: 7vh; border-radius:25px !important; border:1px solid grey; font-size:23px !important;" id="can2">Cancelar</button>
                             </div>
                         </div>
                     </form>
-    
-                    
+
+
                 </div>
             </div>
 
-            
+
         </div>
         <section class="w-100" style="height:calc(100vh-100px)">
             @if (session('success'))
@@ -138,9 +138,9 @@
                                 </div>
                             </form>
                         </div>
-                        
+
                     </div>
-                        
+
                 </div>
                 <div class="w-75 div_notices" id="noticia" style="margin-left: auto; margin-right: auto;" v-for="notices in listProductos">
                     <article class="bg-white" style="margin-bottom: 1rem;">
@@ -150,17 +150,17 @@
                                     <h2>
                                         <b>
                                             @{{ notices.titulo }}
-                                        </b> 
+                                        </b>
                                     </h2>
                                 </div>
                                 <div class="d-flex px-2">
 
                                     <button type="button" class="btn btn-info w-100 mx-4" v-on:click="getNotice(notices)">
-                                        <i class="fa-regular fas fa-circle-info text-white"></i>                                        
+                                        <i class="fa-regular fas fa-circle-info text-white"></i>
                                         <br>
-                                        Ver 
+                                        Ver
                                     </button>
-                                    
+
                                 </div>
 
 
@@ -174,7 +174,7 @@
                                             @{{ notices . archivos }}
                                         <img v-bind:src="'/img/notices/' + notices.archivos" style="width: 75%; height: 25vh;">
                                     </a>
-                                </div>  
+                                </div>
                             </div>
 
                             <div class="pb-4 px-2">
@@ -186,13 +186,13 @@
                     </article>
 
                 </div>
-                
+
 
         </section>
-            
-        
+
+
     </main>
-    
+
     <script>
 
 
@@ -200,7 +200,7 @@
             el: '#app',
             data: {
                 listProductos: [
-                    
+
                 ],
                 formData: {
                 },
@@ -211,7 +211,7 @@
                 ver: function() {
                     this.getNotice();
                 },
-                getNotice: function(notices) {
+                    getNotice: function(notices) {
 
                     var div_h4 = document.getElementById("div_h4");
                     var div_notices = document.querySelectorAll(".div_notices");
@@ -226,7 +226,7 @@
                             console.log(this.formData);
                         });
 
-                        var ah = document.getElementById("form").setAttribute("action", "http://127.0.0.1:8000/notice_updated/"+notices.id); 
+                        var ah = document.getElementById("form").setAttribute("action", "http://127.0.0.1:8000/notice_updated/"+notices.id);
                         cancelar2.addEventListener('click', hideMessage2);
                         function hideMessage2() {
                             div_h4.hidden = true;
@@ -237,7 +237,7 @@
                 viewAll: function() {
                     var url = "http://127.0.0.1:8000/view_all_notices";
 
-                    
+
                     fetch(url)
                         .then(function(response) {
                             return response.json();
@@ -257,7 +257,7 @@
                         .catch((error) => {
                             console.log("error: " + error);
                         });
-                        
+
                 },
 
             },

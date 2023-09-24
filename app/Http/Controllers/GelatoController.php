@@ -9,9 +9,11 @@ use Illuminate\Http\Request;
 use App\Models\Gelatos;
 use App\Models\gelatos_roles;
 use App\Models\Notices;
+use App\Models\comment_notices;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
@@ -109,8 +111,21 @@ class GelatoController extends Controller
     }
 
     public function noticias(){
-        $notice = notices::all();
+        $userId = Auth::id();
+
+        $notice = DB::table('notices')
+        ->leftJoin('comment_notices', 'comment_notices.id_notice', '=', 'notices.id')
+        ->select('notices.id as notice','comment_notices.message as message','comment_notices.favorite as favorite',
+        'comment_notices.id_users as user','comment_notices.id_notice as comment_notice','notices.titulo as titulo',
+        'notices.mensaje as mensaje', 'notices.archivos as archivos')
+
+        ->groupBy("notices.id
+")
+        ->get();
+        // SELECT id_notice, id_users, message, favorite, COUNT(id_notice) FROM `comment_notices` WHERE id_users = 1 GROUP BY id_notice;
         return view('gelato.noticias_gelato', ['notice' => $notice]);
+        // return $notice;
+
     }
 
 }

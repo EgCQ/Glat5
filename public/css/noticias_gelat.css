@@ -1,0 +1,207 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+section{
+    padding: 1rem;
+    margin: 1rem;
+    transition: all 0.5s !important;                
+
+}
+.diva{
+    height: fit-content !important;
+
+    background-color: rgba(225, 220, 290, 10);
+    width: 90%;
+    max-width: 1550px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+
+}
+.diva .archivos{
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+    
+}
+
+.diva a:hover{
+    width: 100%;
+    height: 100%;
+    color: gray;
+}
+.diva .archivos h5{
+    color: black;
+}
+.diva div h4{
+    text-align: end;
+    padding: 0 !important;
+    margin: 0 !important;
+
+}
+div img{
+    width: 100%;
+    transition: all 0.5s;
+}
+div img::before{
+    content: '' !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background-color: rgba(0,0,0, .1) !important;
+}
+.btn_file:hover{
+    background-color: rgb(177, 172, 172) !important;
+}
+.btn_reac:hover{
+    font-weight: bold !important;
+    color: rgb(44, 41, 41) !important;
+    transition: all 0.3s !important;
+    margin-top:0.2rem;
+    background-color: transparent;
+}
+.btn_reac{
+    font-weight: bold;
+    border: none;
+    margin-top:0.2rem;
+    transition: all 0.3s !important;
+    background-color: transparent;
+}
+.btn_reacted:hover{
+    font-weight: bold !important;
+    color: rgb(15, 0, 99) !important;
+    transition: all 0.3s !important;
+    margin-top:0.2rem;
+    background-color: transparent;
+}
+.btn_reacted{
+    font-weight: bold;
+    border: none;
+    margin-top:0.2rem;
+    color: rgb(29, 0, 194) !important;
+    
+    transition: all 0.3s !important;
+    background-color: transparent;
+}
+.btn_com:hover{
+    font-weight: bold !important;
+    color: rgb(116, 116, 116) !important;
+    transition: all 0.7s !important;
+    margin-top:0.2rem;
+    background-color: transparent;
+}
+.btn_com{
+    font-weight: bold;
+    border: none;
+    margin-top:0.2rem;
+    transition: all 0.7s !important;
+    background-color: transparent;
+
+}
+.notice{
+        width: 75%;
+}
+@media screen and (max-width: 850px) {
+
+    .notice{
+        width: 70% !important;
+    }
+}
+@media screen and (max-width: 727px) {
+
+    .notice{
+        width: 100% !important;
+        
+    }
+    div.a{
+        display: flex;
+        width: 100%  !important;
+        justify-content: center !important;
+        transition: all 0.5s !important;
+    }
+    a{
+        width: 100% !important;
+        height: 100% !important;
+        transition: all 0.5s !important;                
+
+    }
+    div img{
+        width: 100% !important;
+        height: 100% !important;
+        transition: all 0.5s !important;                
+
+    }
+
+}
+@media screen and (max-width: 565px) {
+
+    section{
+        width: 100% !important;
+        transition: all 0.5s !important;                
+        margin: 0rem !important;
+        padding: 0rem !important;
+        padding-top: 1rem !important;
+    }
+    .diva{
+        padding: 1rem !important;
+    }
+
+
+}
+@media screen and (max-width: 285px) {
+
+    section{
+        margin: 0rem !important;
+        padding: 0rem !important;
+        padding-top: 1rem !important;
+    }
+}
+.div.a{
+    width: 25%;
+}   
+.a_doc:hover{
+    color: white !important;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.file-input-wrapper {
+height: 30px;
+margin: 2px;
+overflow: hidden;
+position: relative;
+background-color: #fff;
+cursor: pointer;
+}
+
+.file-input-wrapper>input[type="file"] {
+font-size: 40px;
+position: absolute;
+top: 0;
+right: 0;
+opacity: 0;
+cursor: pointer;
+}
+
+.file-input-wrapper>.btn-file-input {
+background-color: #494949;
+border-radius: 4px;
+color: #fff;
+display: inline-block;
+height: 34px;
+margin: 0 0 0 -1px;
+padding-left: 0;
+width: 121px;
+cursor: pointer;
+}
+
+.file-input-wrapper:hover>.btn-file-input {
+    background-color: #494949;
+}
+
+#img_text {
+float: right;
+margin-right: -80px;
+margin-top: -14px;
+}

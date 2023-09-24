@@ -23,10 +23,12 @@
                             </li>
                         </div>
                         <div style="display: flex; align-items: center;" id="ul2">
+                            @auth
+
                             <div class="dropdown">
-                                <button class="w-100 dropmenu btn btn-default hover-text-white dropdown-toggle text-black shadow-none" type="button"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Bienvenido al dashboard <b>{{ Auth::user()->name }}</b>
-                                </button>
+                                    <button class="w-100 dropmenu btn btn-default hover-text-white dropdown-toggle text-black shadow-none" type="button"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Bienvenido al dashboard <b>{{ Auth::user()->name }}</b>
+                                    </button>
                                 <div class="dropdown-menu w-100 dropmenu2" style="" aria-labelledby="dropdownMenuButton" role="menu">
                                     <div class="dropmenu3">
                                         <div class="bg-primary w-50 dropmenu4" style="margin-right: 2rem;">
@@ -49,8 +51,10 @@
                                     </div>
                                 </div>
                             </div>
+                            @endauth
+
                             <div class="dropdown" >
-                                <button class="w-100 h-100 dropmenu btn btn-default hover-text-white text-black shadow-none" 
+                                <button class="w-100 h-100 dropmenu btn btn-default hover-text-white text-black shadow-none"
                                 type="button"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tooltip="Notificaciones" flow="left">
                                     <i class="fa-regular fa-bell" style="font-weight: bold; font-size: 24px; display: flex; justify-content: center; align-items: center;"></i>
                                 </button>
@@ -68,13 +72,13 @@
                                             </div>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
                             </div>
                         </div>
-                        
 
-                        
+
+
                     </ul>
                 </div>
             </div>

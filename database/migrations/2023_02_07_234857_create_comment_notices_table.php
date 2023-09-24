@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reserva_usuario', function (Blueprint $table) {
+        Schema::create('comment_notices', function (Blueprint $table) {
             $table->id();
-            $table->json('productos');
-            $table->string('estado', 100);
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->string('message');
+            $table->string('favorite');
+            $table->unsignedBigInteger('id_users');
+            $table->unsignedBigInteger('id_notice');
+            $table->foreign('id_users')->references('id')->on('users');
+            $table->foreign('id_notice')->references('id')->on('notices');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reserva_usuario');
+        Schema::dropIfExists('comment_notices');
     }
 };

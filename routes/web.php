@@ -108,7 +108,9 @@ Route::post("/submit_forms", function(){
     }
     return redirect()->route("view_forms");
 })->name("file_submit");
-
+Route::get("form-contact", function(){
+    return view("User.formcontact");
+});
 Route::post("/submit_forms2", function(){
     request()->validate([
         "archivos2" => "required",
